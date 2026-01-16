@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="action_open_alumnos" model="ir.actions.act_window">
+        <field name="name">Gestión de Alumnos</field>
+        <field name="res_model">alumno</field> 
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_open_profesores" model="ir.actions.act_window">
+        <field name="name">Cuerpo Docente</field>
+        <field name="res_model">profesor</field>
+         <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_open_partes" model="ir.actions.act_window">
+        <field name="name">Partes de Incidencia</field>
+        <field name="res_model">parte</field> 
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_gestion_escolar_root" name="Gestión Escolar"/>
+
+    <menuitem id="menu_alumnos_cat" name="Alumnos" parent="menu_gestion_escolar_root" sequence="10"/>
+        <menuitem id="submenu_alumnos_listado" 
+                  name="Todos Alumnos" 
+                  parent="menu_alumnos_cat" 
+                  action="action_open_alumnos" 
+                  sequence="10"/>
+        
+        <menuitem id="submenu_alumnos1_listado" 
+                  name="Crear Alumnos" 
+                  parent="menu_alumnos_cat" 
+                  action="action_open_alumnos" 
+                  sequence="10"/>
+        
+
+        <menuitem id="submenu_alumnos2_listado" 
+                  name="Historial de Conducta" 
+                  parent="menu_alumnos_cat" 
+                  action="action_open_alumnos" 
+                  sequence="10"/>
+        
+        <menuitem id="submenu_alumnos3_listado" 
+                  name="Grupos" 
+                  parent="menu_alumnos_cat" 
+                  action="action_open_alumnos" 
+                  sequence="10"/>
+
+    <menuitem id="menu_profesores_cat" name="Profesores" parent="menu_gestion_escolar_root" sequence="20"/>
+        <menuitem id="submenu_profesores_listado" 
+                  name="Ver Profesores" 
+                  parent="menu_profesores_cat" 
+                  action="action_open_profesores" 
+                  sequence="10"/>
+
+        <menuitem id="submenu_profesores2_listado" 
+                  name="Crear Profesores" 
+                  parent="menu_profesores_cat" 
+                  action="action_open_profesores" 
+                  sequence="10"/>
+
+        <menuitem id="submenu_profesores1_listado" 
+                  name="Ver Departamento" 
+                  parent="menu_profesores_cat" 
+                  action="action_open_profesores" 
+                  sequence="10"/>
+
+    <menuitem id="menu_partes_cat" name="Partes" parent="menu_gestion_escolar_root" sequence="30"/>
+       <menuitem id="submenu_partes_gestion" 
+                  name="Crear de Partes" 
+                  parent="menu_partes_cat" 
+                  action="action_open_partes" 
+                  sequence="10"/>
+        <menuitem id="submenu_partes1_gestion" 
+                  name="Historial de Partes" 
+                  parent="menu_partes_cat" 
+                  action="action_open_partes" 
+                  sequence="10"/>
+        <menuitem id="submenu_partes2_gestion" 
+                  name="Tipos de Incidencias" 
+                  parent="menu_partes_cat" 
+                  action="action_open_partes" 
+                  sequence="10"/>
+        <menuitem id="submenu_partes3_gestion" 
+        name="Estadisticas" 
+        parent="menu_partes_cat" 
+        action="action_open_partes" 
+        sequence="10"/>
+
+</odoo>
