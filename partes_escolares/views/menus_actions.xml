@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="action_alumnos" model="ir.actions.act_window">
+        <field name="name">Alumnos</field>
+        <field name="res_model">instituto.alumno</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_grupos" model="ir.actions.act_window">
+        <field name="name">Grupos</field>
+        <field name="res_model">instituto.grupo</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_instituto_raiz" name="Gestión Escolar"/>
+    <menuitem id="menu_alumnos" parent="menu_instituto_raiz" action="action_alumnos" sequence="10"/>
+    <menuitem id="menu_grupos" parent="menu_instituto_raiz" action="action_grupos" sequence="20"/>
+</odoo>

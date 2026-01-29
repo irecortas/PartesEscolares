@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+<record id="view_parte_form" model="ir.ui.view">
+        <field name="name">parte.form</field>
+        <field name="model">instituto.parte</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="estado" widget="statusbar" statusbar_visible="borrador,firmado,cerrado"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group string="Información del Alumno">
+                            <field name="alumno_id" options="{'no_create': True}"/>
+                            <field name="grupo_id"/>
+                        </group>
+                        <group string="Información del Reporte">
+                            <field name="profesor_id"/>
+                            <field name="fecha"/>
+                            <field name="tipo_parte" widget="priority"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Detalles de la Incidencia">
+                            <field name="descripcion" placeholder="Explique qué sucedió..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

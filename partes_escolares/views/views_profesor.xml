@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+<record id="view_profesor_form" model="ir.ui.view">
+        <field name="name">profesor.form</field>
+        <field name="model">instituto.profesor</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Nombre del Docente"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <field name="cedula"/>
+                        <field name="especialidad"/>
+                        <field name="email"/>
+                    </group>
+                    <notebook>
+                        <page string="Grupos Asignados">
+                            <field name="grupo_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

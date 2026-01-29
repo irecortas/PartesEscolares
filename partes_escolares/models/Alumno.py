@@ -1,5 +1,10 @@
-from odoo import fields, models, api
+from odoo import models, fields
 
 class Alumno(models.Model):
-    _name = "alumno"
-    name = fields. Char()
+    _name = 'instituto.alumno'
+    _description = 'Registro de Alumnos'
+
+    name = fields.Char(string='Nombre', required=True)
+    matricula = fields.Char(string='Matrícula')
+    grupo_id = fields.Many2one('instituto.grupo', string='Grupo')
+    parte_ids = fields.One2many('instituto.parte', 'alumno_id', string='Partes')
