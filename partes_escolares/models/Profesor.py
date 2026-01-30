@@ -1,4 +1,4 @@
-from odoo import fields, models, api
+from odoo import models, fields
 
 class Profesor(models.Model):
     _name = 'instituto.profesor'
@@ -7,8 +7,11 @@ class Profesor(models.Model):
     name = fields.Char(string='Nombre del Profesor', required=True)
     especialidad = fields.Char(string='Especialidad')
     
-    # RELACIÓN: Muchos profesores pueden estar en muchos grupos
-    # Odoo crea automáticamente la tabla intermedia 'instituto_profesor_grupo_rel'
+    # --- AÑADE ESTOS CAMPOS ---
+    cedula = fields.Char(string='Cédula/DNI')
+    email = fields.Char(string='Correo Electrónico')
+    # --------------------------
+
     grupo_ids = fields.Many2many(
         'instituto.grupo', 
         string='Grupos Asignados',
