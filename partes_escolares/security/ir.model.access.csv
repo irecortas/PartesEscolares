@@ -1,2 +1,11 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_partes_escolares_partes_escolares,partes_escolares.partes_escolares,model_partes_escolares_partes_escolares,base.group_user,1,1,1,1
+access_alumno_lectura,alumno.read,model_instituto_alumno,base.group_user,1,0,0,0
+access_grupo_lectura,grupo.read,model_instituto_grupo,base.group_user,1,0,0,0
+access_profesor_lectura,profesor.read,model_instituto_profesor,base.group_user,1,0,0,0
+access_motivo_lectura,motivo.read,model_instituto_motivo,base.group_user,1,0,0,0
+access_parte_profesor,parte.profesor,model_instituto_parte,group_instituto_profesor,1,1,1,0
+access_alumno_admin,alumno.admin,model_instituto_alumno,group_instituto_admin,1,1,1,1
+access_grupo_admin,grupo.admin,model_instituto_grupo,group_instituto_admin,1,1,1,1
+access_profesor_admin,profesor.admin,model_instituto_profesor,group_instituto_admin,1,1,1,1
+access_parte_admin,parte.admin,model_instituto_parte,group_instituto_admin,1,1,1,1
+access_motivo_admin,motivo.admin,model_instituto_motivo,group_instituto_admin,1,1,1,1

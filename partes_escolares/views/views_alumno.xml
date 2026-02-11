@@ -1,24 +1,37 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-<record id="view_alumno_form" model="ir.ui.view">
-        <field name="name">alumno.form</field>
+    <record id="view_alumno_tree" model="ir.ui.view">
+        <field name="name">instituto.alumno.tree</field>
+        <field name="model">instituto.alumno</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="apellidos"/>
+                <field name="grupo_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_alumno_form" model="ir.ui.view">
+        <field name="name">instituto.alumno.form</field>
         <field name="model">instituto.alumno</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="grupo_id"/>
+                        <group>
+                            <field name="name" string="Nombre"/>
+                            <field name="apellidos" string="Apellidos"/>
+                        </group>
+                        <group>
+                            <field name="matricula" string="Matrícula"/>
+                        </group>
+                         <group>
+                            <field name="grupo_id" options="{'no_open': True, 'no_create': True}" string="Grupo Asignado"/>
+                        </group>
                     </group>
-                    <group string="Historial de Conducta">
-                        <field name="parte_ids" readonly="1">
-                            <tree>
-                                <field name="name"/>
-                                <field name="profesor_id"/>
-                                <field name="descripcion"/>
-                            </tree>
-                        </field>
-                    </group>
+                    
+                    
                 </sheet>
             </form>
         </field>

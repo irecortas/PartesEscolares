@@ -1,27 +1,52 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-<record id="action_alumnos" model="ir.actions.act_window">
-        <field name="name">Alumnos</field>
+    <record id="action_open_alumnos" model="ir.actions.act_window">
+        <field name="name">Gestión de Alumnos</field>
         <field name="res_model">instituto.alumno</field>
         <field name="view_mode">tree,form</field>
     </record>
 
-    <record id="action_profesores" model="ir.actions.act_window">
-        <field name="name">Profesores</field>
+    <record id="action_open_profesores" model="ir.actions.act_window">
+        <field name="name">Cuerpo Docente</field>
         <field name="res_model">instituto.profesor</field>
         <field name="view_mode">tree,form</field>
     </record>
 
-    <record id="action_partes" model="ir.actions.act_window">
-        <field name="name">Partes de Disciplina</field>
+    <record id="action_open_partes" model="ir.actions.act_window">
+        <field name="name">Partes de Incidencia</field>
         <field name="res_model">instituto.parte</field>
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_instituto_raiz" name="Gestión Escolar"/>
-    
-    <menuitem id="menu_alumnos" parent="menu_instituto_raiz" action="action_alumnos" sequence="10"/>
-    <menuitem id="menu_profesores" parent="menu_instituto_raiz" action="action_profesores" sequence="20"/>
-    <menuitem id="menu_partes" parent="menu_instituto_raiz" action="action_partes" sequence="30"/>
+    <record id="action_open_grupos" model="ir.actions.act_window">
+        <field name="name">Grupos</field>
+        <field name="res_model">instituto.grupo</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="action_open_motivos" model="ir.actions.act_window">
+        <field name="name">Motivos de Incidencia</field>
+        <field name="res_model">instituto.motivo</field>
+        <field name="view_mode">tree,form</field>
+    </record>
 
+    <menuitem id="menu_gestion_escolar_root" name="Gestión Escolar" sequence="1"/>
+
+    <menuitem id="menu_alumnos_cat" name="Alumnos" parent="menu_gestion_escolar_root" sequence="10"/>
+    <menuitem id="submenu_alumnos_crear" name="Crear Alumno" parent="menu_alumnos_cat" action="action_open_alumnos" sequence="10"/>
+    <menuitem id="submenu_alumnos_reportes" name="Reportes Alumnos" parent="menu_alumnos_cat" action="action_open_alumnos" sequence="20"/>
+
+    <menuitem id="menu_profesores_cat" name="Profesores" parent="menu_gestion_escolar_root" sequence="20"/>
+    <menuitem id="submenu_profesores_crear" name="Crear Profesor" parent="menu_profesores_cat" action="action_open_profesores" sequence="10"/>
+    <menuitem id="submenu_profesores_reportes" name="Reportes Profesores" parent="menu_profesores_cat" action="action_open_profesores" sequence="20"/>
+    
+    <menuitem id="menu_grupos_cat" name="Grupos" parent="menu_gestion_escolar_root" sequence="30"/>
+    <menuitem id="submenu_grupos_crear" name="Crear Grupo" parent="menu_grupos_cat" action="action_open_grupos" sequence="10"/>
+
+    <menuitem id="menu_partes_cat" name="Partes" parent="menu_gestion_escolar_root" sequence="40"/>
+    <menuitem id="submenu_partes_crear" name="Crear Parte" parent="menu_partes_cat" action="action_open_partes" sequence="10"/>
+    <menuitem id="submenu_partes_reportes" name="Estadísticas y Reportes" parent="menu_partes_cat" action="action_open_partes" sequence="20"/>
+
+    
+    <menuitem id="menu_motivo_cat" name="Motivos" parent="menu_gestion_escolar_root" sequence="45"/>
+    <menuitem id="submenu_motivos_crear" name="Crear Motivos" parent="menu_motivo_cat" action="action_open_motivos" sequence="10"/>
 </odoo>

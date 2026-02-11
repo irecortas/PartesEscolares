@@ -1,35 +1,58 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-<record id="view_parte_form" model="ir.ui.view">
-        <field name="name">parte.form</field>
+    <record id="view_parte_form" model="ir.ui.view">
+        <field name="name">instituto.parte.form</field>
         <field name="model">instituto.parte</field>
         <field name="arch" type="xml">
-            <form>
+            <form string="Parte de Disciplina">
                 <header>
-                    <field name="estado" widget="statusbar" statusbar_visible="borrador,firmado,cerrado"/>
+                    <field name="estado" widget="statusbar" statusbar_visible="pendiente,contactado,cerrado"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
-                        <h1><field name="name"/></h1>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="Ej. Incidente de clase..."/></h1>
                     </div>
                     <group>
-                        <group string="Información del Alumno">
-                            <field name="alumno_id" options="{'no_create': True}"/>
-                            <field name="grupo_id"/>
+                        <group string="Alumno">
+                            <field name="alumno_id" options="{'no_open': True, 'limit': 1}"/>
+                            <field name="grupo_id" readonly="1"/>
                         </group>
-                        <group string="Información del Reporte">
-                            <field name="profesor_id"/>
-                            <field name="fecha"/>
-                            <field name="tipo_parte" widget="priority"/>
+
+                        <group string="Reporte">
+                            <field name="profesor_ids_del_grupo" invisible="1"/>
+                            <field name="profesor_id" 
+                                options="{'no_open': True}" 
+                                domain="[('id', 'in', profesor_ids_del_grupo)]"/>
+                            <field name="fecha" />
                         </group>
                     </group>
+                    
+                    <group string="Información del Incidente" groups="partes_escolares.group_instituto_admin">
+                        <field name="motivo_id" options="{'no_open': True}"/>
+                    </group>
+
                     <notebook>
-                        <page string="Detalles de la Incidencia">
+                        <page string="Detalles">
                             <field name="descripcion" placeholder="Explique qué sucedió..."/>
                         </page>
                     </notebook>
                 </sheet>
             </form>
+        </field>
+    </record>
+
+    <record id="view_parte_tree" model="ir.ui.view">
+        <field name="name">instituto.parte.tree</field>
+        <field name="model">instituto.parte</field>
+        <field name="arch" type="xml">
+            <tree decoration-info="estado == 'pendiente'" decoration-muted="estado == 'cerrado'">
+                <field name="name"/>
+                <field name="fecha"/>
+                <field name="alumno_id"/>
+                <field name="profesor_id"/>
+                <field name="estado"/>
+            </tree>
         </field>
     </record>
 </odoo>

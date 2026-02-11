@@ -11,9 +11,11 @@ class Profesor(models.Model):
     cedula = fields.Char(string='Cédula/DNI')
     email = fields.Char(string='Correo Electrónico')
     # --------------------------
-
+    user_id = fields.Many2one('res.users', string='Usuario de Odoo', help="Usuario vinculado a este profesor")
     grupo_ids = fields.Many2many(
         'instituto.grupo', 
         string='Grupos Asignados',
         relation='instituto_profesor_grupo_rel'
     )
+
+    parte_ids = fields.One2many('instituto.parte', 'profesor_id', string='Partes Emitidos')
