@@ -1,5 +1,72 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="view_parte_tree" model="ir.ui.view">
+        <field name="name">instituto.parte.tree</field>
+        <field name="model">instituto.parte</field>
+        <field name="arch" type="xml">
+            <tree decoration-info="estado == 'pendiente'" decoration-success="estado == 'cerrado'">
+                <field name="name"/>
+                <field name="alumno_id"/>
+                <field name="fecha"/>
+                <field name="estado" widget="badge"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_parte_calendar" model="ir.ui.view">
+        <field name="name">instituto.parte.calendar</field>
+        <field name="model">instituto.parte</field>
+        <field name="arch" type="xml">
+            <calendar string="Partes" date_start="fecha" color="estado">
+                <field name="alumno_id"/>
+                <field name="name"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_parte_graph" model="ir.ui.view">
+        <field name="name">instituto.parte.graph</field>
+        <field name="model">instituto.parte</field>
+        <field name="arch" type="xml">
+            <graph string="Gráfico de Incidencias" type="bar">
+                <field name="alumno_id"/>
+                <field name="incidencia_count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+    
+
+    <record id="view_parte_pivot" model="ir.ui.view">
+        <field name="name">instituto.parte.pivot</field>
+        <field name="model">instituto.parte</field>
+        <field name="arch" type="xml">
+            <pivot string="Análisis Pivot">
+                <field name="alumno_id" type="row"/>
+                <field name="estado" type="col"/>
+                <field name="incidencia_count" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+    
+
+    <record id="view_parte_search" model="ir.ui.view">
+        <field name="name">instituto.parte.search</field>
+        <field name="model">instituto.parte</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Incidencia"/>
+                <field name="alumno_id"/>
+                
+                <filter string="Pendientes" name="pend" domain="[('estado','=','pendiente')]"/>
+                <filter string="Cerrados" name="cerrados" domain="[('estado','=','cerrado')]"/>
+                
+                <group expand="0" string="Agrupar por">
+                    <filter string="Grupo del Alumno" name="grp" context="{'group_by':'grupo_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
     <record id="view_parte_form" model="ir.ui.view">
         <field name="name">instituto.parte.form</field>
         <field name="model">instituto.parte</field>
@@ -15,44 +82,21 @@
                     </div>
                     <group>
                         <group string="Alumno">
-                            <field name="alumno_id" options="{'no_open': True, 'limit': 1}"/>
+                            <field name="alumno_id" options="{'no_open': True}"/>
                             <field name="grupo_id" readonly="1"/>
                         </group>
-
                         <group string="Reporte">
-                            <field name="profesor_ids_del_grupo" invisible="1"/>
-                            <field name="profesor_id" 
-                                options="{'no_open': True}" 
-                                domain="[('id', 'in', profesor_ids_del_grupo)]"/>
                             <field name="fecha" />
+                            <field name="profesor_id" options="{'no_open': True}"/>
                         </group>
                     </group>
-                    
-                    <group string="Información del Incidente" groups="partes_escolares.group_instituto_admin">
-                        <field name="motivo_id" options="{'no_open': True}"/>
-                    </group>
-
                     <notebook>
                         <page string="Detalles">
-                            <field name="descripcion" placeholder="Explique qué sucedió..."/>
+                            <field name="descripcion"/>
                         </page>
                     </notebook>
                 </sheet>
             </form>
-        </field>
-    </record>
-
-    <record id="view_parte_tree" model="ir.ui.view">
-        <field name="name">instituto.parte.tree</field>
-        <field name="model">instituto.parte</field>
-        <field name="arch" type="xml">
-            <tree decoration-info="estado == 'pendiente'" decoration-muted="estado == 'cerrado'">
-                <field name="name"/>
-                <field name="fecha"/>
-                <field name="alumno_id"/>
-                <field name="profesor_id"/>
-                <field name="estado"/>
-            </tree>
         </field>
     </record>
 </odoo>

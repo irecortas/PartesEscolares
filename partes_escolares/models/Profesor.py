@@ -11,6 +11,9 @@ class Profesor(models.Model):
     cedula = fields.Char(string='Cédula/DNI')
     email = fields.Char(string='Correo Electrónico')
     # --------------------------
+    # Campo para medir en gráficas y pivot
+    profesor_count = fields.Integer(default=1, string="Contador Profesores")
+
     user_id = fields.Many2one('res.users', string='Usuario de Odoo', help="Usuario vinculado a este profesor")
     grupo_ids = fields.Many2many(
         'instituto.grupo', 

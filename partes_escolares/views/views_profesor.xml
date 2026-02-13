@@ -13,6 +13,53 @@
         </field>
     </record>
 
+    <record id="view_profesor_kanban" model="ir.ui.view">
+        <field name="name">instituto.profesor.kanban</field>
+        <field name="model">instituto.profesor</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="name"/>
+                                </strong>
+                                <div><field name="email"/></div>
+                                <div>Grupos: <field name="grupo_ids" widget="many2many_tags"/></div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_profesor_graph" model="ir.ui.view">
+        <field name="name">instituto.profesor.graph</field>
+        <field name="model">instituto.profesor</field>
+        <field name="arch" type="xml">
+            <graph string="Análisis de Profesores" type="bar">
+                <field name="name"/>
+                <field name="profesor_count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_profesor_search" model="ir.ui.view">
+        <field name="name">instituto.profesor.search</field>
+        <field name="model">instituto.profesor</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="cedula"/>
+                <field name="email"/>
+            </search>
+        </field>
+    </record>
+
+
+
     <record id="view_profesor_form" model="ir.ui.view">
         <field name="name">instituto.profesor.form</field>
         <field name="model">instituto.profesor</field>

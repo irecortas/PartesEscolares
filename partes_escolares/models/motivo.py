@@ -6,5 +6,8 @@ class MotivoParte(models.Model):
 
     name = fields.Char(string='Descripción del Motivo', required=True)
     
+    # Campo para medir en gráficas y pivot
+    motivo_count = fields.Integer(default=1, string="Contador Motivos")
+    
     # Esta relación es obligatoria para que el XML no dé error
     parte_ids = fields.One2many('instituto.parte', 'motivo_id', string='Partes con este motivo')
