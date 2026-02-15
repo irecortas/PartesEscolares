@@ -1,30 +1,25 @@
 <odoo>
-    <data>
-<!--
-          <record id="object0" model="partes_escolares.partes_escolares">
-            <field name="name">Object 0</field>
-            <field name="value">0</field>
-          </record>
+  <data noupdate="0">
+    <!-- Demo: crear algunos partes vinculados a datos iniciales -->
+    <record id="parte_1" model="instituto.parte">
+      <field name="name">Desobediencia en clase</field>
+      <field name="fecha">2025-11-10</field>
+      <field name="motivo_id" ref="../data/data_initial.xml#motivo_falta_respeto"/>
+      <field name="alumno_id" ref="../data/data_initial.xml#alumno_maria"/>
+      <field name="profesor_id" ref="../data/data_initial.xml#profesor_ana"/>
+      <field name="descripcion">El alumno mostró un comportamiento desafiante durante la lección.</field>
+      <field name="estado">pendiente</field>
+    </record>
 
-          <record id="object1" model="partes_escolares.partes_escolares">
-            <field name="name">Object 1</field>
-            <field name="value">10</field>
-          </record>
+    <record id="parte_2" model="instituto.parte">
+      <field name="name">Llegada tarde repetida</field>
+      <field name="fecha">2025-11-12</field>
+      <field name="motivo_id" ref="../data/data_initial.xml#motivo_retraso"/>
+      <field name="alumno_id" ref="../data/data_initial.xml#alumno_juan"/>
+      <field name="profesor_id" ref="../data/data_initial.xml#profesor_carlos"/>
+      <field name="descripcion">Acumulación de retrasos en la asignatura.</field>
+      <field name="estado">contactado</field>
+    </record>
 
-          <record id="object2" model="partes_escolares.partes_escolares">
-            <field name="name">Object 2</field>
-            <field name="value">20</field>
-          </record>
-
-          <record id="object3" model="partes_escolares.partes_escolares">
-            <field name="name">Object 3</field>
-            <field name="value">30</field>
-          </record>
-
-          <record id="object4" model="partes_escolares.partes_escolares">
-            <field name="name">Object 4</field>
-            <field name="value">40</field>
-          </record>
--->
-    </data>
+  </data>
 </odoo>

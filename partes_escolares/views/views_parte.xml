@@ -1,40 +1,86 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+    <record id="view_parte_tree" model="ir.ui.view">
+        <field name="name">instituto.parte.tree</field>
+        <field name="model">instituto.parte</field>
+        <field name="arch" type="xml">
+            <tree decoration-info="estado == 'pendiente'" decoration-success="estado == 'cerrado'">
+                <field name="fecha"/>
+                <field name="alumno_id"/>
+                <field name="grupo_id"/>
+                <field name="name" string="Asunto"/>
+                <field name="motivo_id"/>
+                <field name="profesor_id"/>
+                <field name="estado" widget="badge" decoration-info="estado == 'pendiente'" decoration-warning="estado == 'contactado'" decoration-success="estado == 'cerrado'"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_parte_kanban" model="ir.ui.view">
+        <field name="name">instituto.parte.kanban</field>
+        <field name="model">instituto.parte</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="estado">
+                <field name="id"/>
+                <field name="estado"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="name"/>
+                                </strong>
+                                <div>
+                                    <field name="alumno_id"/>
+                                </div>
+                                <div>
+                                    <field name="fecha"/>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <field name="motivo_id"/>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="estado" widget="label_selection" options="{'classes': {'pendiente': 'info', 'contactado': 'warning', 'cerrado': 'success'}}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <record id="view_parte_form" model="ir.ui.view">
         <field name="name">instituto.parte.form</field>
         <field name="model">instituto.parte</field>
         <field name="arch" type="xml">
-            <form string="Parte de Disciplina">
+            <form>
                 <header>
-                    <field name="estado" widget="statusbar" statusbar_visible="pendiente,contactado,cerrado"/>
+                    <field name="estado" widget="statusbar" clickable="1"/>
+                    <button name="%(action_report_parte)d" type="action" string="Imprimir PDF" class="btn-primary" icon="fa-print"/>
                 </header>
                 <sheet>
+                    <field name="id" invisible="1"/>
                     <div class="oe_title">
-                        <label for="name" class="oe_edit_only"/>
-                        <h1><field name="name" placeholder="Ej. Incidente de clase..."/></h1>
+                        <label for="name" string="Asunto del Parte"/>
+                        <h1><field name="name" placeholder="Ej. Desobediencia en clase"/></h1>
                     </div>
                     <group>
-                        <group string="Alumno">
-                            <field name="alumno_id" options="{'no_open': True, 'limit': 1}"/>
-                            <field name="grupo_id" readonly="1"/>
+                        <group>
+                            <field name="fecha"/>
+                            <field name="motivo_id"/>
                         </group>
-
-                        <group string="Reporte">
+                        <group>
+                            <field name="alumno_id"/>
+                            <field name="grupo_id"/>
+                            <field name="profesor_id" domain="[('id', 'in', profesor_ids_del_grupo)]"/>
                             <field name="profesor_ids_del_grupo" invisible="1"/>
-                            <field name="profesor_id" 
-                                options="{'no_open': True}" 
-                                domain="[('id', 'in', profesor_ids_del_grupo)]"/>
-                            <field name="fecha" />
                         </group>
                     </group>
-                    
-                    <group string="Información del Incidente" groups="partes_escolares.group_instituto_admin">
-                        <field name="motivo_id" options="{'no_open': True}"/>
-                    </group>
-
                     <notebook>
-                        <page string="Detalles">
-                            <field name="descripcion" placeholder="Explique qué sucedió..."/>
+                        <page string="Descripción Detallada">
+                            <field name="descripcion"/>
                         </page>
                     </notebook>
                 </sheet>
@@ -42,17 +88,57 @@
         </field>
     </record>
 
-    <record id="view_parte_tree" model="ir.ui.view">
-        <field name="name">instituto.parte.tree</field>
+    <record id="view_parte_search" model="ir.ui.view">
+        <field name="name">instituto.parte.search</field>
         <field name="model">instituto.parte</field>
         <field name="arch" type="xml">
-            <tree decoration-info="estado == 'pendiente'" decoration-muted="estado == 'cerrado'">
-                <field name="name"/>
-                <field name="fecha"/>
+            <search>
+                <field name="name" string="Asunto"/>
                 <field name="alumno_id"/>
-                <field name="profesor_id"/>
-                <field name="estado"/>
-            </tree>
+                <field name="motivo_id"/>
+                
+                <filter string="Pendientes" name="pend" domain="[('estado','=','pendiente')]"/>
+                <filter string="Cerrados" name="cerrados" domain="[('estado','=','cerrado')]"/>
+                
+                <group expand="0" string="Agrupar por">
+                    <filter string="Por Alumno" name="grp_alumno" context="{'group_by':'alumno_id'}"/>
+                    <filter string="Por Motivo" name="grp_motivo" context="{'group_by':'motivo_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_parte_calendar" model="ir.ui.view">
+        <field name="name">instituto.parte.calendar</field>
+        <field name="model">instituto.parte</field>
+        <field name="arch" type="xml">
+            <calendar string="Calendario de Partes" date_start="fecha" color="estado">
+                <field name="alumno_id"/>
+                <field name="name"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_parte_graph" model="ir.ui.view">
+        <field name="name">instituto.parte.graph</field>
+        <field name="model">instituto.parte</field>
+        <field name="arch" type="xml">
+            <graph string="Estadísticas de Partes" type="bar">
+                <field name="alumno_id"/>
+                <field name="incidencia_count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_parte_pivot" model="ir.ui.view">
+        <field name="name">instituto.parte.pivot</field>
+        <field name="model">instituto.parte</field>
+        <field name="arch" type="xml">
+            <pivot string="Análisis de Partes">
+                <field name="alumno_id" type="row"/>
+                <field name="estado" type="col"/>
+                <field name="incidencia_count" type="measure"/>
+            </pivot>
         </field>
     </record>
 </odoo>

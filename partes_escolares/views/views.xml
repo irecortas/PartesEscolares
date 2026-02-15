@@ -3,30 +3,36 @@
     <record id="action_open_alumnos" model="ir.actions.act_window">
         <field name="name">Gestión de Alumnos</field>
         <field name="res_model">instituto.alumno</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
 
     <record id="action_open_profesores" model="ir.actions.act_window">
         <field name="name">Cuerpo Docente</field>
         <field name="res_model">instituto.profesor</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="view_profesor_kanban"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea el primer profesor
+            </p>
+        </field>
     </record>
 
     <record id="action_open_partes" model="ir.actions.act_window">
         <field name="name">Partes de Incidencia</field>
         <field name="res_model">instituto.parte</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form,calendar,graph,pivot</field>
     </record>
 
     <record id="action_open_grupos" model="ir.actions.act_window">
         <field name="name">Grupos</field>
         <field name="res_model">instituto.grupo</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
     <record id="action_open_motivos" model="ir.actions.act_window">
         <field name="name">Motivos de Incidencia</field>
         <field name="res_model">instituto.motivo</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
 
     <menuitem id="menu_gestion_escolar_root" name="Gestión Escolar" sequence="1"/>

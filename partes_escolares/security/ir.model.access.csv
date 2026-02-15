@@ -8,4 +8,5 @@ access_alumno_admin,alumno.admin,model_instituto_alumno,group_instituto_admin,1,
 access_grupo_admin,grupo.admin,model_instituto_grupo,group_instituto_admin,1,1,1,1
 access_profesor_admin,profesor.admin,model_instituto_profesor,group_instituto_admin,1,1,1,1
 access_parte_admin,parte.admin,model_instituto_parte,group_instituto_admin,1,1,1,1
+access_reporte_admin,reporte.admin,model_instituto_reporte,group_instituto_admin,1,1,1,1
 access_motivo_admin,motivo.admin,model_instituto_motivo,group_instituto_admin,1,1,1,1

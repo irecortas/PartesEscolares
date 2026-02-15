@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record id="view_alumno_tree" model="ir.ui.view">
         <field name="name">instituto.alumno.tree</field>
         <field name="model">instituto.alumno</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="matricula"/>
                 <field name="name"/>
                 <field name="apellidos"/>
                 <field name="grupo_id"/>
@@ -17,23 +17,86 @@
         <field name="model">instituto.alumno</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="action_print_alumno" type="object" string="Imprimir PDF" class="btn-primary"/>
+                </header>
                 <sheet>
+                    <field name="image_128" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <label for="name" string="Nombre del Alumno"/>
+                        <h1><field name="name" placeholder="Ej. Juan"/></h1>
+                        <label for="apellidos" string="Apellidos"/>
+                        <h2><field name="apellidos" placeholder="Ej. Pérez"/></h2>
+                    </div>
                     <group>
                         <group>
-                            <field name="name" string="Nombre"/>
-                            <field name="apellidos" string="Apellidos"/>
-                        </group>
-                        <group>
-                            <field name="matricula" string="Matrícula"/>
-                        </group>
-                         <group>
-                            <field name="grupo_id" options="{'no_open': True, 'no_create': True}" string="Grupo Asignado"/>
+                            <field name="matricula"/>
+                            <field name="grupo_id"/>
                         </group>
                     </group>
-                    
-                    
                 </sheet>
             </form>
+        </field>
+    </record>
+
+    <record id="view_alumno_search" model="ir.ui.view">
+        <field name="name">instituto.alumno.search</field>
+        <field name="model">instituto.alumno</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="matricula"/>
+                <filter string="Con Grupo" name="has_group" domain="[('grupo_id', '!=', False)]"/>
+                <filter string="Sin Matrícula" name="no_mat" domain="[('matricula', '=', False)]"/>
+                <group expand="0" string="Agrupar por">
+                    <filter string="Grupo Escolar" name="grp" context="{'group_by': 'grupo_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_alumno_kanban" model="ir.ui.view">
+        <field name="name">instituto.alumno.kanban</field>
+        <field name="model">instituto.alumno</field>
+        <field name="arch" type="xml">
+            <kanban quick_create="false">
+                <field name="id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img t-att-src="kanban_image('instituto.alumno', 'image_128', record.id.raw_value)" alt="Alumno" class="o_image_64_contain"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong><field name="name"/> <field name="apellidos"/></strong>
+                                <div><field name="grupo_id"/></div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_alumno_graph" model="ir.ui.view">
+        <field name="name">instituto.alumno.graph</field>
+        <field name="model">instituto.alumno</field>
+        <field name="arch" type="xml">
+            <graph type="pie">
+                <field name="grupo_id"/>
+                <field name="alumno_count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_alumno_pivot" model="ir.ui.view">
+        <field name="name">instituto.alumno.pivot</field>
+        <field name="model">instituto.alumno</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="grupo_id" type="row"/>
+                <field name="alumno_count" type="measure"/>
+            </pivot>
         </field>
     </record>
 </odoo>

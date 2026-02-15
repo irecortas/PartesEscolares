@@ -19,6 +19,10 @@
     'category': 'Uncategorized',
     'version': '0.1',
 
+    'images': [
+        'static/description/icon.png',
+    ],
+
     # any module necessary for this one to work correctly
     'depends': ['base'],
 
@@ -26,14 +30,15 @@
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
-      
+        'reports/report_templates.xml',
         'views/templates.xml',
         'views/views_alumno.xml',
         'views/views_parte.xml',
         'views/views_grupo.xml',
         'views/views_profesor.xml',
         'views/views_motivo.xml',
-          'views/views.xml',
+        'views/views.xml',
+        'data/data_initial.xml',
     
 
     ],

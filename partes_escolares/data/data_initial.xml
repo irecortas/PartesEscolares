@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="1">
+
+    <!-- Motivos básicos -->
+    <record id="motivo_falta_respeto" model="instituto.motivo">
+      <field name="name">Falta de respeto</field>
+    </record>
+    <record id="motivo_retraso" model="instituto.motivo">
+      <field name="name">Retraso</field>
+    </record>
+    <record id="motivo_dano_material" model="instituto.motivo">
+      <field name="name">Daño de material</field>
+    </record>
+
+    <!-- Profesores de ejemplo -->
+    <record id="profesor_ana" model="instituto.profesor">
+      <field name="name">Ana López</field>
+      <field name="especialidad">Matemáticas</field>
+      <field name="cedula">12345678A</field>
+      <field name="email">ana.lopez@example.com</field>
+    </record>
+    <record id="profesor_carlos" model="instituto.profesor">
+      <field name="name">Carlos Ruiz</field>
+      <field name="especialidad">Lengua</field>
+      <field name="cedula">87654321B</field>
+      <field name="email">carlos.ruiz@example.com</field>
+    </record>
+
+    <!-- Grupos -->
+    <record id="grupo_1a" model="instituto.grupo">
+      <field name="name">1º ESO A</field>
+      <field name="profesor_ids" eval="[(4, ref('profesor_ana')), (4, ref('profesor_carlos'))]"/>
+    </record>
+    <record id="grupo_2b" model="instituto.grupo">
+      <field name="name">2º ESO B</field>
+      <field name="profesor_ids" eval="[(4, ref('profesor_carlos'))]"/>
+    </record>
+
+    <!-- Alumnos iniciales -->
+    <record id="alumno_maria" model="instituto.alumno">
+      <field name="name">María</field>
+      <field name="apellidos">García</field>
+      <field name="matricula">A001</field>
+      <field name="grupo_id" ref="grupo_1a"/>
+    </record>
+    <record id="alumno_juan" model="instituto.alumno">
+      <field name="name">Juan</field>
+      <field name="apellidos">Pérez</field>
+      <field name="matricula">A002</field>
+      <field name="grupo_id" ref="grupo_1a"/>
+    </record>
+    <record id="alumno_lucia" model="instituto.alumno">
+      <field name="name">Lucía</field>
+      <field name="apellidos">Fernández</field>
+      <field name="matricula">B001</field>
+      <field name="grupo_id" ref="grupo_2b"/>
+    </record>
+
+  </data>
+</odoo>

@@ -17,14 +17,12 @@ class Parte(models.Model):
         store=True
     )
     
-
     profesor_id = fields.Many2one(
         'instituto.profesor', 
         string='Profesor',
         default=lambda self: self.env['instituto.profesor'].search([('user_id', '=', self.env.user.id)], limit=1)
     )
 
-    # --- ESTO ES LO QUE FALTABA (EL CAMPO QUE EL XML BUSCA) ---
     profesor_ids_del_grupo = fields.Many2many(
         'instituto.profesor', 
         compute='_compute_profesores_permitidos',
@@ -39,16 +37,16 @@ class Parte(models.Model):
         ('cerrado', 'Cerrado')
     ], string='Estado', default='pendiente')
 
+    # CAMPO PARA GRÁFICOS (REQUISITO PDF)
+    incidencia_count = fields.Integer(string="Cantidad", default=1, readonly=True)
+
     @api.depends('alumno_id')
     def _compute_profesores_permitidos(self):
         for record in self:
             if record.alumno_id and record.alumno_id.grupo_id:
-            # Asignamos los IDs de los profesores asociados al grupo
                 record.profesor_ids_del_grupo = record.alumno_id.grupo_id.profesor_ids
             else:
-            # Si no hay alumno seleccionado, permitimos todos los profesores
                 record.profesor_ids_del_grupo = self.env['instituto.profesor'].search([])
-
 
     @api.constrains('profesor_id', 'alumno_id', 'fecha')
     def _check_validez(self):
@@ -57,3 +55,8 @@ class Parte(models.Model):
                 raise ValidationError("Debe seleccionar un profesor para crear el parte.")
             if record.fecha and record.fecha > fields.Date.today():
                 raise ValidationError("La fecha del parte no puede ser futura.")
+
+    def action_print_parte(self):
+        '''Acción para imprimir el reporte QWeb del parte actual.'''
+        self.ensure_one()
+        return self.env.ref('partes_escolares.action_report_parte').report_action(self)

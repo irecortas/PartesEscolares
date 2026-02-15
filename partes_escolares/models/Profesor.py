@@ -19,3 +19,8 @@ class Profesor(models.Model):
     )
 
     parte_ids = fields.One2many('instituto.parte', 'profesor_id', string='Partes Emitidos')
+
+    def action_print_profesor(self):
+        '''Imprime el reporte QWeb de la ficha del profesor.'''
+        self.ensure_one()
+        return self.env.ref('partes_escolares.action_report_profesor').report_action(self)
