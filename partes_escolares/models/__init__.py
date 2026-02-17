@@ -5,9 +5,6 @@ from . import Profesor
 from . import Parte
 from . import Grupo
 from . import motivo
-<<<<<<< HEAD
-from . import Reportes
-from . import wizard_seleccionar_alumno
-
-=======
->>>>>>> parent of 0d3670b (spint4 completo)
+from . import Asignatura
+from . import Lugar
+from . import Situacion

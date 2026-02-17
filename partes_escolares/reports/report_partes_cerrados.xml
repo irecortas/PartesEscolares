@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_partes_cerrados_document">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <style>
+                        .header { background-color: #27ae60; color: white; padding: 15px; margin-bottom: 20px; border-radius: 5px; }
+                        .table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+                        .table th { background-color: #2ecc71; color: white; padding: 10px; text-align: left; }
+                        .table td { padding: 10px; border: 1px solid #ddd; }
+                        .section { margin-top: 20px; padding: 15px; background-color: #d5f4e6; border-left: 4px solid #27ae60; }
+                        .footer { text-align: center; margin-top: 20px; font-size: 12px; color: #7f8c8d; }
+                    </style>
+
+                    <div class="header">
+                        <h2 style="margin: 0;">Informe de Partes Cerrados</h2>
+                        <p>Fecha de Generación: <t t-esc="context_timestamp(datetime.datetime.now())"/></p>
+                    </div>
+
+                    <div class="section">
+                        <h3>Partes Resueltos</h3>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Alumno</th>
+                                    <th>Grupo</th>
+                                    <th>Motivo</th>
+                                    <th>Profesor</th>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                    <th>Lugar</th>
+                                    <th>Descripción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="docs.filtered(lambda p: p.situacion_id.name == 'Cerrado')" t-as="parte">
+                                    <tr>
+                                        <td><t t-esc="parte.alumno_id.name"/> <t t-esc="parte.alumno_id.apellidos"/></td>
+                                        <td><t t-esc="parte.grupo_id.name"/></td>
+                                        <td><t t-esc="parte.motivo_id.name"/></td>
+                                        <td><t t-esc="parte.profesor_id.name"/></td>
+                                        <td><t t-esc="parte.fecha"/></td>
+                                        <td><t t-esc="parte.hora"/></td>
+                                        <td><t t-esc="parte.lugar_id.name"/></td>
+                                        <td><t t-esc="parte.descripcion"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="footer">
+                        <p>Generado por el Sistema de Gestión Escolar</p>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_partes_cerrados" model="ir.actions.report">
+        <field name="name">Informe Partes Cerrados</field>
+        <field name="model">instituto.parte</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">partes_escolares.report_partes_cerrados_document</field>
+        <field name="report_file">partes_escolares.report_partes_cerrados_document</field>
+        <field name="print_report_name">'Partes Cerrados'</field>
+        <field name="binding_model_id" ref="model_instituto_parte"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

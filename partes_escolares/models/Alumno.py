@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 class Alumno(models.Model):
     _name = 'instituto.alumno'
@@ -7,22 +7,12 @@ class Alumno(models.Model):
     name = fields.Char(string='Nombre', required=True)
     apellidos = fields.Char(string='Apellidos', required=True)
     matricula = fields.Char(string='Matrícula')
-<<<<<<< HEAD
-    # Campo para la foto en el Kanban
-    image_128 = fields.Image(string="Foto", max_width=128, max_height=128)
-    # Campo para medir en gráficas y pivot
-    alumno_count = fields.Integer(default=1, string="Contador Alumnos")
-    
+    nia = fields.Char(string='NIA')
     grupo_id = fields.Many2one('instituto.grupo', string='Grupo')
     parte_ids = fields.One2many('instituto.parte', 'alumno_id', string='Partes')
+    partes_activas = fields.Integer(string='Partes Activas', compute='_compute_partes_activas')
 
-    def name_get(self):
-        result = []
+    @api.depends('parte_ids.situacion_id')
+    def _compute_partes_activas(self):
         for record in self:
-            name = f"[{record.matricula or 'S/M'}] {record.name} {record.apellidos}"
-            result.append((record.id, name))
-        return result
-=======
-    grupo_id = fields.Many2one('instituto.grupo', string='Grupo')
-    parte_ids = fields.One2many('instituto.parte', 'alumno_id', string='Partes')
->>>>>>> parent of 0d3670b (spint4 completo)
+            record.partes_activas = len([p for p in record.parte_ids if p.situacion_id.name != 'Cerrado'])

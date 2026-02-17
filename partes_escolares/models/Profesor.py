@@ -22,3 +22,5 @@ class Profesor(models.Model):
     )
 
     parte_ids = fields.One2many('instituto.parte', 'profesor_id', string='Partes Emitidos')
+    grupo_tutorizado_ids = fields.One2many('instituto.grupo', 'tutor_id', string='Grupos Tutorizados')
+    asignatura_ids = fields.Many2many('instituto.asignatura', string='Asignaturas')

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista de árbol para Lugar -->
+        <record id="view_lugar_tree" model="ir.ui.view">
+            <field name="name">instituto.lugar.tree</field>
+            <field name="model">instituto.lugar</field>
+            <field name="arch" type="xml">
+                <tree string="Lugares">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de formulario para Lugar -->
+        <record id="view_lugar_form" model="ir.ui.view">
+            <field name="name">instituto.lugar.form</field>
+            <field name="model">instituto.lugar</field>
+            <field name="arch" type="xml">
+                <form string="Lugar">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acción de ventana para Lugar -->
+        <record id="action_lugar" model="ir.actions.act_window">
+            <field name="name">Lugares</field>
+            <field name="res_model">instituto.lugar</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menú para Lugar -->
+        <menuitem id="menu_lugar" name="Lugares" parent="menu_gestion_cat" action="action_lugar"/>
+    </data>
+</odoo>

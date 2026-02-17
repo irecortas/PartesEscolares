@@ -17,12 +17,9 @@
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Uncategorized',
-<<<<<<< HEAD
-    'version': '16.0.0.1',
-    'license': 'LGPL-3',
-=======
     'version': '0.1',
->>>>>>> parent of 0d3670b (spint4 completo)
+
+    'icon': 'static/description/icon.png',
 
     # any module necessary for this one to work correctly
     'depends': ['base'],
@@ -31,23 +28,27 @@
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
-      
+        'reports/report_templates.xml',
+        'reports/report_alumno_partes.xml',
+        'reports/report_partes_activos.xml',
+        'reports/report_partes_cerrados.xml',
         'views/templates.xml',
         'views/views_alumno.xml',
         'views/views_parte.xml',
         'views/views_grupo.xml',
         'views/views_profesor.xml',
         'views/views_motivo.xml',
-          'views/views.xml',
-<<<<<<< HEAD
-        'views/wizard_seleccionar_alumno_views.xml',
-=======
->>>>>>> parent of 0d3670b (spint4 completo)
-    
-
+        'views/views.xml',
+        'views/views_asignatura.xml',
+        'views/views_lugar.xml',
+        'views/views_situacion.xml',
+        'data/data_initial.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
 }
+
+
+# adsd
