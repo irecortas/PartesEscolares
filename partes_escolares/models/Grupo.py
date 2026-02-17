@@ -7,4 +7,11 @@ class Grupo(models.Model):
     name = fields.Char(string='Nombre del Grupo', required=True)
     grupo_count = fields.Integer(default=1, string="Contador Grupos") # Necesario para Graph
     alumno_ids = fields.One2many('instituto.alumno', 'grupo_id', string='Alumnos')
+<<<<<<< HEAD
     profesor_ids = fields.Many2many('instituto.profesor', string='Profesores del Grupo')
+=======
+    profesor_ids = fields.Many2many(
+            'instituto.profesor', 
+            string='Profesores del Grupo'
+        )
+>>>>>>> parent of 0d3670b (spint4 completo)

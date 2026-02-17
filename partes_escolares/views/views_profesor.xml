@@ -13,6 +13,7 @@
         </field>
     </record>
 
+<<<<<<< HEAD
     <record id="view_profesor_kanban" model="ir.ui.view">
         <field name="name">instituto.profesor.kanban</field>
         <field name="model">instituto.profesor</field>
@@ -60,6 +61,8 @@
 
 
 
+=======
+>>>>>>> parent of 0d3670b (spint4 completo)
     <record id="view_profesor_form" model="ir.ui.view">
         <field name="name">instituto.profesor.form</field>
         <field name="model">instituto.profesor</field>

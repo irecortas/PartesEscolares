@@ -7,6 +7,7 @@ class Alumno(models.Model):
     name = fields.Char(string='Nombre', required=True)
     apellidos = fields.Char(string='Apellidos', required=True)
     matricula = fields.Char(string='Matrícula')
+<<<<<<< HEAD
     # Campo para la foto en el Kanban
     image_128 = fields.Image(string="Foto", max_width=128, max_height=128)
     # Campo para medir en gráficas y pivot
@@ -21,3 +22,7 @@ class Alumno(models.Model):
             name = f"[{record.matricula or 'S/M'}] {record.name} {record.apellidos}"
             result.append((record.id, name))
         return result
+=======
+    grupo_id = fields.Many2one('instituto.grupo', string='Grupo')
+    parte_ids = fields.One2many('instituto.parte', 'alumno_id', string='Partes')
+>>>>>>> parent of 0d3670b (spint4 completo)

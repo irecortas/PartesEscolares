@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
+=======
+<?xml version="1.0" encoding="utf-8" ?>
+>>>>>>> parent of 0d3670b (spint4 completo)
 <odoo>
     <record id="view_alumno_search" model="ir.ui.view">
         <field name="name">instituto.alumno.search</field>
@@ -30,6 +34,7 @@
         </field>
     </record>
 
+<<<<<<< HEAD
     <record id="view_alumno_graph" model="ir.ui.view">
         <field name="name">instituto.alumno.graph</field>
         <field name="model">instituto.alumno</field>
@@ -77,12 +82,15 @@
         </field>
     </record>
 
+=======
+>>>>>>> parent of 0d3670b (spint4 completo)
     <record id="view_alumno_form" model="ir.ui.view">
         <field name="name">instituto.alumno.form</field>
         <field name="model">instituto.alumno</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
+<<<<<<< HEAD
                     <field name="image_128" widget="image" class="oe_avatar"/>
                     <group>
                         <field name="name"/>
@@ -90,6 +98,22 @@
                         <field name="matricula"/>
                         <field name="grupo_id"/>
                     </group>
+=======
+                    <group>
+                        <group>
+                            <field name="name" string="Nombre"/>
+                            <field name="apellidos" string="Apellidos"/>
+                        </group>
+                        <group>
+                            <field name="matricula" string="Matrícula"/>
+                        </group>
+                         <group>
+                            <field name="grupo_id" options="{'no_open': True, 'no_create': True}" string="Grupo Asignado"/>
+                        </group>
+                    </group>
+                    
+                    
+>>>>>>> parent of 0d3670b (spint4 completo)
                 </sheet>
             </form>
         </field>

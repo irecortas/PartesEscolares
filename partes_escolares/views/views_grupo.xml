@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+<<<<<<< HEAD
     <record id="view_grupo_tree" model="ir.ui.view">
         <field name="name">instituto.grupo.tree</field>
         <field name="model">instituto.grupo</field>
@@ -53,6 +54,9 @@
     </record>
 
     <record id="view_grupo_form" model="ir.ui.view">
+=======
+<record id="view_grupo_form" model="ir.ui.view">
+>>>>>>> parent of 0d3670b (spint4 completo)
         <field name="name">grupo.form</field>
         <field name="model">instituto.grupo</field>
         <field name="arch" type="xml">
