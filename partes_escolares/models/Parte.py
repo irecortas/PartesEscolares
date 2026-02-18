@@ -12,18 +12,16 @@ class Parte(models.Model):
     alumno_id = fields.Many2one('instituto.alumno', string='Alumno', required=True)
     grupo_id = fields.Many2one('instituto.grupo', string='Grupo', related='alumno_id.grupo_id', store=True)
     
-
     profesor_id = fields.Many2one(
         'instituto.profesor', 
         string='Profesor',
         default=lambda self: self.env['instituto.profesor'].search([('user_id', '=', self.env.user.id)], limit=1)
-    )
+    ) #?
 
-    # --- ESTO ES LO QUE FALTABA (EL CAMPO QUE EL XML BUSCA) ---
-    profesor_ids_del_grupo = fields.Many2many(
+    profesor_id_del_grupo = fields.Many2many(
         'instituto.profesor', 
         compute='_compute_profesores_permitidos',
-        string='Profesores Permitidos'
+        string='Tutor'
     )
 
     descripcion = fields.Text(string='Detalles adicionales')
@@ -34,7 +32,7 @@ class Parte(models.Model):
         ('0', 'Baja'),
         ('1', 'Media'),
         ('2', 'Alta'),
-    ], string='Prioridad', default='0')
+    ], string='Prioridad', default='0') #?
     state = fields.Selection([
         ('draft', 'Borrador'),
         ('open', 'Abierto'),
@@ -47,10 +45,8 @@ class Parte(models.Model):
     def _compute_profesores_permitidos(self):
         for record in self:
             if record.alumno_id and record.alumno_id.grupo_id:
-                # Asignamos los IDs de los profesores asociados al grupo
                 record.profesor_ids_del_grupo = record.alumno_id.grupo_id.profesor_ids
             else:
-                # Si no hay alumno seleccionado, permitimos todos los profesores
                 record.profesor_ids_del_grupo = self.env['instituto.profesor'].search([])
 
 
