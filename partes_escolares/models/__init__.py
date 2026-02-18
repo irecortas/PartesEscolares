@@ -4,7 +4,7 @@ from . import Alumno
 from . import Profesor
 from . import Parte
 from . import Grupo
-from . import motivo
+from . import Motivo
 from . import Asignatura
 from . import Lugar
 from . import Situacion
