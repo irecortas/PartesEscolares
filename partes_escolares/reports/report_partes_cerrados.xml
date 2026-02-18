@@ -35,7 +35,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <t t-foreach="docs.filtered(lambda p: p.situacion_id.name == 'Cerrado')" t-as="parte">
+                                <t t-foreach="docs.filtered(lambda p: p.state == 'cerrado')" t-as="parte">
                                     <tr>
                                         <td><t t-esc="parte.alumno_id.name"/> <t t-esc="parte.alumno_id.apellidos"/></td>
                                         <td><t t-esc="parte.grupo_id.name"/></td>

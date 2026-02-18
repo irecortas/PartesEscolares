@@ -12,7 +12,7 @@ class Alumno(models.Model):
     parte_ids = fields.One2many('instituto.parte', 'alumno_id', string='Partes')
     partes_activas = fields.Integer(string='Partes Activas', compute='_compute_partes_activas')
 
-    @api.depends('parte_ids.situacion_id')
+    @api.depends('parte_ids.state')
     def _compute_partes_activas(self):
         for record in self:
-            record.partes_activas = len([p for p in record.parte_ids if p.situacion_id.name != 'Cerrado'])
+            record.partes_activas = len([p for p in record.parte_ids if p.state != 'cerrado'])

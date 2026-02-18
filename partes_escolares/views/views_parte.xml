@@ -6,11 +6,10 @@
         <field name="arch" type="xml">
             <form string="Parte de Disciplina">
                 <header>
-                    <button name="action_confirm" string="Confirmar" type="object" states="draft" class="btn-primary"/>
-                    <button name="action_in_progress" string="En Progreso" type="object" states="open" class="btn-warning"/>
-                    <button name="action_done" string="Cerrar" type="object" states="in_progress" class="btn-success"/>
-                    <button name="action_reset" string="Reiniciar" type="object" states="open,in_progress,done" class="btn-secondary"/>
-                    <field name="state" widget="statusbar" statusbar_visible="draft,open,in_progress,done"/>
+                    <button name="action_contactado" string="Contactar" type="object" states="pendiente" class="btn-primary"/>
+                    <button name="action_cerrado" string="Cerrar" type="object" states="contactado" class="btn-success"/>
+                    <button name="action_pendiente" string="Volver a Pendiente" type="object" states="contactado,cerrado" class="btn-secondary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="pendiente,contactado,cerrado"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
@@ -29,7 +28,7 @@
                                 options="{'no_open': True}" 
                                 domain="[('id', 'in', profesor_ids_del_grupo)]"/>
                             <field name="fecha" />
-                            <field name="hora" />
+                            <field name="hora" widget="float_time"/>
                             <field name="lugar_id"/>
                         </group>
                     </group>
@@ -42,6 +41,11 @@
                         <page string="Detalles">
                             <field name="descripcion" placeholder="Explique qué sucedió..."/>
                         </page>
+                        <page string="Acciones">
+                            <group>
+                                <field name="acciones" placeholder="Explique qué acciones se tomaron..." nolabel="1"/>
+                            </group>
+                        </page>
                     </notebook>
                 </sheet>
             </form>
@@ -52,14 +56,12 @@
         <field name="name">instituto.parte.tree</field>
         <field name="model">instituto.parte</field>
         <field name="arch" type="xml">
-            <tree decoration-success="state == 'draft'" decoration-warning="state == 'open'" decoration-danger="state == 'done'">
+            <tree decoration-success="state == 'pendiente'" decoration-warning="state == 'contactado'" decoration-danger="state == 'cerrado'">
                 <field name="name"/>
                 <field name="alumno_id"/>
                 <field name="fecha"/>
-                <field name="hora"/>
-                <field name="state"/>
-                <field name="situacion_name" invisible="1"/>
-                <field name="situacion_id" widget="badge"/>
+                <field name="hora" widget="float_time"/>
+                <field name="state" widget="badge" decoration-success="state == 'pendiente'" decoration-warning="state == 'contactado'" decoration-danger="state == 'cerrado'"/>
             </tree>
         </field>
     </record>
@@ -101,8 +103,8 @@
         <field name="name">instituto.parte.graph.situacion</field>
         <field name="model">instituto.parte</field>
         <field name="arch" type="xml">
-            <graph string="Incidencias por Situación" type="line">
-                <field name="situacion_id"/>
+            <graph string="Incidencias por Estado" type="line">
+                <field name="state"/>
                 <field name="fecha" interval="month"/>
                 <field name="incidencia_count" type="measure"/>
             </graph>
@@ -116,7 +118,7 @@
         <field name="arch" type="xml">
             <pivot string="Análisis Pivot">
                 <field name="alumno_id" type="row"/>
-                <field name="situacion_id" type="col"/>
+                <field name="state" type="col"/>
                 <field name="incidencia_count" type="measure"/>
             </pivot>
         </field>
@@ -131,8 +133,8 @@
                 <field name="name" string="Incidencia"/>
                 <field name="alumno_id"/>
                 
-                <filter string="Pendientes" name="pend" domain="[('situacion_name','=','Pendiente de contactar')]"/>
-                <filter string="Cerrados" name="cerrados" domain="[('situacion_name','=','Cerrado')]"/>
+                <filter string="Pendientes" name="pend" domain="[('state','=','pendiente')]"/>
+                <filter string="Cerrados" name="cerrados" domain="[('state','=','cerrado')]"/>
                 
                 <group expand="0" string="Agrupar por">
                     <filter string="Grupo del Alumno" name="grp" context="{'group_by':'grupo_id'}"/>

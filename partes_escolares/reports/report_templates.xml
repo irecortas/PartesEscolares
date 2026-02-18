@@ -48,7 +48,7 @@
                                         <tr>
                                             <td><span t-field="hist.fecha"/></td>
                                             <td><span t-field="hist.motivo_id.name"/></td>
-                                            <td><span t-field="hist.estado"/></td>
+                                            <td><span t-field="hist.state"/></td>
                                         </tr>
                                     </t>
                                     <tr t-if="not otros_partes">
@@ -101,7 +101,7 @@
                                     <tr>
                                         <td><t t-esc="pa.fecha"/></td>
                                         <td><t t-esc="pa.motivo_id.name"/></td>
-                                        <td><t t-esc="pa.estado"/></td>
+                                        <td><t t-esc="pa.state"/></td>
                                     </tr>
                                 </t>
                             </tbody>

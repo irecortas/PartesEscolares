@@ -34,7 +34,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <t t-foreach="docs.filtered(lambda p: p.situacion_id.name == 'Pendiente de contactar')" t-as="parte">
+                                <t t-foreach="docs.filtered(lambda p: p.state == 'pendiente')" t-as="parte">
                                     <tr>
                                         <td><t t-esc="parte.alumno_id.name"/> <t t-esc="parte.alumno_id.apellidos"/></td>
                                         <td><t t-esc="parte.grupo_id.name"/></td>
@@ -64,7 +64,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <t t-foreach="docs.filtered(lambda p: p.situacion_id.name == 'Contactado')" t-as="parte">
+                                <t t-foreach="docs.filtered(lambda p: p.state == 'contactado')" t-as="parte">
                                     <tr>
                                         <td><t t-esc="parte.alumno_id.name"/> <t t-esc="parte.alumno_id.apellidos"/></td>
                                         <td><t t-esc="parte.grupo_id.name"/></td>

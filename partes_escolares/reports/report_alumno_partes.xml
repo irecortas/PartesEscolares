@@ -28,7 +28,7 @@
                                         <th>Hora</th>
                                         <th>Motivo</th>
                                         <th>Profesor</th>
-                                        <th>Situación</th>
+                                        <th>Estado</th>
                                         <th>Lugar</th>
                                     </tr>
                                 </thead>
@@ -39,7 +39,7 @@
                                             <td><t t-esc="parte.hora"/></td>
                                             <td><t t-esc="parte.motivo_id.name"/></td>
                                             <td><t t-esc="parte.profesor_id.name"/></td>
-                                            <td><t t-esc="parte.situacion_id.name"/></td>
+                                            <td><t t-esc="parte.state"/></td>
                                             <td><t t-esc="parte.lugar_id.name"/></td>
                                         </tr>
                                     </t>
@@ -50,8 +50,8 @@
                         <div class="section">
                             <h3>Resumen</h3>
                             <p>Total de Partes: <t t-esc="len(alumno.parte_ids)"/></p>
-                            <p>Partes Pendientes: <t t-esc="len([p for p in alumno.parte_ids if p.situacion_id.name == 'Pendiente de contactar'])"/></p>
-                            <p>Partes Cerrados: <t t-esc="len([p for p in alumno.parte_ids if p.situacion_id.name == 'Cerrado'])"/></p>
+                            <p>Partes Pendientes: <t t-esc="len([p for p in alumno.parte_ids if p.state == 'pendiente'])"/></p>
+                            <p>Partes Cerrados: <t t-esc="len([p for p in alumno.parte_ids if p.state == 'cerrado'])"/></p>
                         </div>
                     </div>
                 </t>

@@ -9,3 +9,7 @@ access_grupo_admin,grupo.admin,model_instituto_grupo,group_instituto_admin,1,1,1
 access_profesor_admin,profesor.admin,model_instituto_profesor,group_instituto_admin,1,1,1,1
 access_parte_admin,parte.admin,model_instituto_parte,group_instituto_admin,1,1,1,1
 access_motivo_admin,motivo.admin,model_instituto_motivo,group_instituto_admin,1,1,1,1
+access_lugar_lectura,lugar.read,model_instituto_lugar,base.group_user,1,0,0,0
+access_lugar_admin,lugar.admin,model_instituto_lugar,group_instituto_admin,1,1,1,1
+access_asignatura_lectura,asignatura.read,model_instituto_asignatura,base.group_user,1,0,0,0
+access_asignatura_admin,asignatura.admin,model_instituto_asignatura,group_instituto_admin,1,1,1,1

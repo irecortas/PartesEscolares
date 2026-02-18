@@ -41,7 +41,6 @@
         'views/views.xml',
         'views/views_asignatura.xml',
         'views/views_lugar.xml',
-        'views/views_situacion.xml',
         'data/data_initial.xml',
     ],
     # only loaded in demonstration mode

@@ -39,6 +39,12 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <record id="action_open_asignaturas" model="ir.actions.act_window">
+        <field name="name">Asignaturas</field>
+        <field name="res_model">instituto.asignatura</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
     <menuitem id="menu_gestion_escolar_root" name="Instituto" sequence="1"/>
 
     <menuitem id="menu_parte_cat" name="Parte" parent="menu_gestion_escolar_root" sequence="10"/>
@@ -56,7 +62,7 @@
     <menuitem id="submenu_gestion_profesores" name="Profesores" parent="menu_gestion_cat" action="action_open_profesores" sequence="20"/>
     <menuitem id="submenu_gestion_grupos" name="Grupos" parent="menu_gestion_cat" action="action_open_grupos" sequence="30"/>
     <menuitem id="submenu_gestion_motivos" name="Motivos" parent="menu_gestion_cat" action="action_open_motivos" sequence="40"/>
-
-    <menuitem id="submenu_gestion_motivos" name="Motivos" parent="menu_gestion_cat" action="action_open_motivos" sequence="40"/>
+    <menuitem id="submenu_gestion_asignaturas" name="Asignaturas" parent="menu_gestion_cat" action="action_open_asignaturas" sequence="50"/>
+    
 
 </odoo>

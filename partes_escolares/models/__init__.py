@@ -7,4 +7,3 @@ from . import Grupo
 from . import motivo
 from . import Asignatura
 from . import Lugar
-from . import Situacion
