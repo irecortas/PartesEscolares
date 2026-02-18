@@ -36,7 +36,7 @@
                                     <t t-foreach="alumno.parte_ids" t-as="parte">
                                         <tr>
                                             <td><t t-esc="parte.fecha"/></td>
-                                            <td><t t-esc="parte.hora"/></td>
+                                            <td><span t-field="parte.hora" widget="float_time"/></td>
                                             <td><t t-esc="parte.motivo_id.name"/></td>
                                             <td><t t-esc="parte.profesor_id.name"/></td>
                                             <td><t t-esc="parte.state"/></td>

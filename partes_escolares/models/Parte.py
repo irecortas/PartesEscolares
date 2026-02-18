@@ -1,5 +1,6 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
+from datetime import datetime, timedelta
 
 class Parte(models.Model):
     _name = 'instituto.parte'
@@ -7,10 +8,11 @@ class Parte(models.Model):
 
     name = fields.Char(string='Nombre', required=True)
     fecha = fields.Date(string='Fecha', default=fields.Date.context_today)
-    hora = fields.Char(string='Hora')
+    grupo_id = fields.Many2one('instituto.grupo', string='Grupo', related='alumno_id.grupo_id', store=True)
+    fecha_hora = fields.Datetime(string='Fecha y Hora', compute='_compute_fecha_hora', store=True)
+    hora = fields.Float(string='Hora')
     motivo_id = fields.Many2one('instituto.motivo', string='Motivo', required=True)
     alumno_id = fields.Many2one('instituto.alumno', string='Alumno', required=True)
-    grupo_id = fields.Many2one('instituto.grupo', string='Grupo', related='alumno_id.grupo_id', store=True)
     
     profesor_id = fields.Many2one(
         'instituto.profesor', 
@@ -18,27 +20,25 @@ class Parte(models.Model):
         default=lambda self: self.env['instituto.profesor'].search([('user_id', '=', self.env.user.id)], limit=1)
     ) #?
 
-    profesor_id_del_grupo = fields.Many2many(
+    profesor_ids_del_grupo = fields.Many2many(
         'instituto.profesor', 
         compute='_compute_profesores_permitidos',
-        string='Tutor'
+        string='Profesores Permitidos'
     )
 
     descripcion = fields.Text(string='Detalles adicionales')
     lugar_id = fields.Many2one('instituto.lugar', string='Lugar')
-    situacion_id = fields.Many2one('instituto.situacion', string='Situación', default=lambda self: self.env['instituto.situacion'].search([('name', '=', 'Pendiente de contactar')], limit=1))
-    situacion_name = fields.Char(related='situacion_id.name', string='Nombre Situación', store=True)
+    acciones = fields.Text(string='Acciones tomadas')
     prioridad = fields.Selection([
         ('0', 'Baja'),
         ('1', 'Media'),
         ('2', 'Alta'),
-    ], string='Prioridad', default='0') #?
+    ], string='Prioridad', default='0')
     state = fields.Selection([
-        ('draft', 'Borrador'),
-        ('open', 'Abierto'),
-        ('in_progress', 'En Progreso'),
-        ('done', 'Cerrado'),
-    ], string='Estado', default='draft', tracking=True)
+        ('pendiente', 'Pendiente de contactar'),
+        ('contactado', 'Contactado'),
+        ('cerrado', 'Cerrado'),
+    ], string='Estado', default='pendiente')
     incidencia_count = fields.Integer(default=1, string="Contador Incidencias")
 
     @api.depends('alumno_id')
@@ -58,14 +58,26 @@ class Parte(models.Model):
             if record.fecha and record.fecha > fields.Date.today():
                 raise ValidationError("La fecha del parte no puede ser futura.")
 
-    def action_confirm(self):
-        self.write({'state': 'open'})
+    @api.depends('fecha', 'hora')
+    def _compute_fecha_hora(self):
+        for record in self:
+            if record.fecha and record.hora:
+                try:
+                    # Odoo stores Datetime in UTC. 
+                    hour = int(record.hora)
+                    minute = int((record.hora - hour) * 60)
+                    dt_str = f"{record.fecha} {hour:02d}:{minute:02d}:00"
+                    record.fecha_hora = fields.Datetime.from_string(dt_str)
+                except Exception:
+                    record.fecha_hora = False
+            else:
+                record.fecha_hora = False
 
-    def action_in_progress(self):
-        self.write({'state': 'in_progress'})
+    def action_pendiente(self):
+        self.write({'state': 'pendiente'})
 
-    def action_done(self):
-        self.write({'state': 'done'})
+    def action_contactado(self):
+        self.write({'state': 'contactado'})
 
-    def action_reset(self):
-        self.write({'state': 'draft'})
+    def action_cerrado(self):
+        self.write({'state': 'cerrado'})

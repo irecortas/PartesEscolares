@@ -9,8 +9,9 @@ class Grupo(models.Model):
     alumno_ids = fields.One2many('instituto.alumno', 'grupo_id', string='Alumnos')
     tutor_id = fields.Many2one('instituto.profesor', string='Tutor',required=True)
     asignatura_ids = fields.Many2many('instituto.asignatura', string='Asignaturas') #?
+    profesor_ids = fields.Many2many('instituto.profesor', string='Profesores')
     _sql_constraints = [
-        ('unique_profesor_grupo', 
-         'unique(profesor_id)', 
-         '¡Un profesor solo puede tener un grupo asignado!')
+        ('unique_tutor_grupo', 
+         'unique(tutor_id)', 
+         '¡Un profesor solo puede ser tutor de un grupo!')
     ]

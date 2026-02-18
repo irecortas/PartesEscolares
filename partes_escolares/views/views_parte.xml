@@ -36,17 +36,12 @@
                     <group string="Información del Incidente" groups="partes_escolares.group_instituto_admin">
                         <field name="motivo_id" options="{'no_open': True}"/>
                     </group>
-
-                    <notebook>
-                        <page string="Detalles">
+                    <group>
                             <field name="descripcion" placeholder="Explique qué sucedió..."/>
-                        </page>
-                        <page string="Acciones">
-                            <group>
-                                <field name="acciones" placeholder="Explique qué acciones se tomaron..." nolabel="1"/>
-                            </group>
-                        </page>
-                    </notebook>
+                            <field name="acciones" placeholder="Explique qué acciones se tomaron..."/>
+                        
+                    </group>
+                
                 </sheet>
             </form>
         </field>
@@ -70,7 +65,7 @@
         <field name="name">instituto.parte.calendar</field>
         <field name="model">instituto.parte</field>
         <field name="arch" type="xml">
-            <calendar string="Partes" date_start="fecha" color="state">
+            <calendar string="Partes" date_start="fecha_hora" color="state">
                 <field name="alumno_id"/>
                 <field name="name"/>
             </calendar>
