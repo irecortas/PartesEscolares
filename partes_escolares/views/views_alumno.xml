@@ -78,7 +78,7 @@
                                 <p>NIA: <field name="nia"/></p>
                                 <p>Grupo: <field name="grupo_id"/></p>
                                 <div class="oe_kanban_bottom_right">
-                                    <field name="parte_ids" widget="statinfo" string="Partes"/>
+                                    <field name="parte_ids"/>
                                 </div>
                             </div>
                         </div>

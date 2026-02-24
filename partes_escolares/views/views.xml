@@ -16,16 +16,15 @@
     <record id="action_open_partes" model="ir.actions.act_window">
         <field name="name">Partes de Incidencia</field>
         <field name="res_model">instituto.parte</field>
-        <field name="view_mode">tree,form,calendar,graph,pivot</field>
+        <field name="view_mode">tree,form,calendar</field>
     </record>
 
-    <record id="action_graficos_directivos" model="ir.actions.act_window">
-        <field name="name">Gráficos Directivos</field>
+    <record id="action_analisis_partes" model="ir.actions.act_window">
+        <field name="name">Análisis de Incidencias</field>
         <field name="res_model">instituto.parte</field>
-        <field name="view_mode">graph</field>
-        <field name="view_id" ref="view_parte_graph_motivo"/>
-        <field name="groups_id" eval="[(4, ref('group_instituto_directivo'))]"/>
+        <field name="view_mode">graph,pivot</field>
     </record>
+
 
     <record id="action_open_grupos" model="ir.actions.act_window">
         <field name="name">Grupos</field>
@@ -51,11 +50,7 @@
     <menuitem id="submenu_parte_crear" name="Crear Parte" parent="menu_parte_cat" action="action_open_partes" sequence="10"/>
 
     <menuitem id="menu_reportes_cat" name="Reportes" parent="menu_gestion_escolar_root" sequence="20"/>
-    <menuitem id="submenu_reportes_estadisticas" name="Estadísticas y Gráficos" parent="menu_reportes_cat" action="action_open_partes" sequence="10"/>
-    <menuitem id="submenu_reportes_alumno" name="Informe Alumno" parent="menu_reportes_cat" action="action_report_alumno_partes" sequence="20"/>
-    <menuitem id="submenu_reportes_activos" name="Informe Partes Activos" parent="menu_reportes_cat" action="action_report_partes_activos" sequence="30"/>
-    <menuitem id="submenu_reportes_cerrados" name="Informe Partes Cerrados" parent="menu_reportes_cat" action="action_report_partes_cerrados" sequence="40"/>
-    <menuitem id="submenu_graficos_directivos" name="Gráficos Directivos" parent="menu_reportes_cat" action="action_graficos_directivos" sequence="50" groups="group_instituto_directivo"/>
+    <menuitem id="submenu_reportes_estadisticas" name="Estadísticas y Gráficos" parent="menu_reportes_cat" action="action_analisis_partes" sequence="10"/>
 
     <menuitem id="menu_gestion_cat" name="Gestión" parent="menu_gestion_escolar_root" sequence="30"/>
     <menuitem id="submenu_gestion_alumnos" name="Alumnos" parent="menu_gestion_cat" action="action_open_alumnos" sequence="10"/>

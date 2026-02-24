@@ -18,7 +18,7 @@
                     </div>
                     <group>
                         <group string="Alumno">
-                            <field name="alumno_id" options="{'no_open': True, 'limit': 1}"/>
+                            <field name="alumno_id" options="{'no_open': True}"/>
                             <field name="grupo_id" readonly="1"/>
                         </group>
 
@@ -29,7 +29,7 @@
                                 domain="[('id', 'in', profesor_ids_del_grupo)]"/>
                             <field name="fecha" />
                             <field name="hora" widget="float_time"/>
-                            <field name="lugar_id"/>
+                            <field name="lugar"/>
                         </group>
                     </group>
                     

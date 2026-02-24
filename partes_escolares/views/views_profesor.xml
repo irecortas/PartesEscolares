@@ -8,7 +8,6 @@
                 <field name="name" string="Nombre del Docente"/>
                 <field name="cedula"/>
                 <field name="email"/>
-                <field name="grupo_ids" widget="many2many_tags" string="Grupos Asignados"/>
             </tree>
         </field>
     </record>
@@ -27,10 +26,9 @@
                     <group>
                         <field name="cedula"/>
                         <field name="email"/>
-                        <field name="grupo_ids" widget="many2many_tags" string="Grupos que imparte"/>
                     </group>
 
-                    
+
                 </sheet>
             </form>
         </field>

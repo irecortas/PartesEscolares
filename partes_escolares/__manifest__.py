@@ -40,7 +40,6 @@
         'views/views_motivo.xml',
         'views/views.xml',
         'views/views_asignatura.xml',
-        'views/views_lugar.xml',
         'data/data_initial.xml',
     ],
     # only loaded in demonstration mode

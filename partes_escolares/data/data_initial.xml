@@ -30,11 +30,11 @@
     <!-- Grupos -->
     <record id="grupo_1a" model="instituto.grupo">
       <field name="name">1º ESO A</field>
-      <field name="profesor_ids" eval="[(4, ref('profesor_ana')), (4, ref('profesor_carlos'))]"/>
+      <field name="tutor_id" ref="profesor_ana"/>
     </record>
     <record id="grupo_2b" model="instituto.grupo">
       <field name="name">2º ESO B</field>
-      <field name="profesor_ids" eval="[(4, ref('profesor_carlos'))]"/>
+      <field name="tutor_id" ref="profesor_carlos"/>
     </record>
 
     <!-- Alumnos iniciales -->
@@ -99,16 +99,6 @@
       <field name="grupo_id" ref="grupo_1a"/>
     </record>
 
-    <!-- Lugares -->
-    <record id="lugar_aula" model="instituto.lugar">
-      <field name="name">Aula</field>
-    </record>
-    <record id="lugar_pasillo" model="instituto.lugar">
-      <field name="name">Pasillo</field>
-    </record>
-    <record id="lugar_gimnasio" model="instituto.lugar">
-      <field name="name">Gimnasio</field>
-    </record>
 
     <!-- Asignaturas -->
     <record id="asignatura_matematicas" model="instituto.asignatura">
@@ -129,7 +119,7 @@
       <field name="motivo_id" ref="motivo_falta_respeto"/>
       <field name="alumno_id" ref="alumno_maria"/>
       <field name="profesor_id" ref="profesor_ana"/>
-      <field name="lugar_id" ref="lugar_aula"/>
+      <field name="lugar">Aula de 1º ESO</field>
       <field name="prioridad">1</field>
       <field name="descripcion">Comportamiento disruptivo durante la clase.</field>
     </record>
@@ -139,7 +129,7 @@
       <field name="motivo_id" ref="motivo_retraso"/>
       <field name="alumno_id" ref="alumno_juan"/>
       <field name="profesor_id" ref="profesor_carlos"/>
-      <field name="lugar_id" ref="lugar_pasillo"/>
+      <field name="lugar">Pasillo Central</field>
       <field name="prioridad">0</field>
       <field name="descripcion">Llegada tarde a primera hora.</field>
     </record>
@@ -149,7 +139,7 @@
       <field name="motivo_id" ref="motivo_dano_material"/>
       <field name="alumno_id" ref="alumno_lucia"/>
       <field name="profesor_id" ref="profesor_ana"/>
-      <field name="lugar_id" ref="lugar_gimnasio"/>
+      <field name="lugar">Gimnasio</field>
       <field name="prioridad">2</field>
       <field name="descripcion">Rotura de balón durante educación física.</field>
     </record>

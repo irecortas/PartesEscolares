@@ -15,6 +15,5 @@ class Profesor(models.Model):
     user_id = fields.Many2one('res.users', string='Usuario de Odoo', help="Usuario vinculado a este profesor") #?
 
     parte_ids = fields.One2many('instituto.parte', 'profesor_id', string='Partes Emitidos')
-    grupo_id = fields.One2many('instituto.grupo', 'tutor_id', string='Grupo Tutorizado',limit=1 )
+    grupo_tutorizado_ids = fields.One2many('instituto.grupo', 'tutor_id', string='Grupos Tutorizados')
     asignatura_ids = fields.Many2many('instituto.asignatura', string='Asignaturas') #?
-    grupo_ids = fields.Many2many('instituto.grupo', string='Grupos que imparte')
