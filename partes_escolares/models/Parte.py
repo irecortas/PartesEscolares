@@ -13,6 +13,8 @@ class Parte(models.Model):
     hora = fields.Float(string='Hora', required=True)
     motivo_id = fields.Many2one('instituto.motivo', string='Motivo', required=True)
     alumno_id = fields.Many2one('instituto.alumno', string='Alumno', required=True)
+    asignatura_id = fields.Many2one('instituto.asignatura', string='Asignatura', required=True)
+
     
     profesor_id = fields.Many2one(
         'instituto.profesor', 

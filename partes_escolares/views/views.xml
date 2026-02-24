@@ -19,12 +19,40 @@
         <field name="view_mode">tree,form,calendar</field>
     </record>
 
-    <record id="action_analisis_partes" model="ir.actions.act_window">
-        <field name="name">Análisis de Incidencias</field>
+    <record id="action_analisis_partes_alumnos" model="ir.actions.act_window">
+        <field name="name">Análisis de incidencias por alumnos</field>
         <field name="res_model">instituto.parte</field>
-        <field name="view_mode">graph,pivot</field>
+        <field name="view_mode">tree,graph,pivot</field>
+        <field name="context">{'group_by': 'alumno_id'}</field>
     </record>
 
+    <record id="action_analisis_partes_profesores" model="ir.actions.act_window">
+        <field name="name">Análisis de incidencias por profesores</field>
+        <field name="res_model">instituto.parte</field>
+        <field name="view_mode">graph,pivot</field>
+        <field name="context">{'group_by': 'profesor_id'}</field>
+    </record>
+
+    <record id="action_analisis_partes_grupos" model="ir.actions.act_window">
+        <field name="name">Análisis de incidencias por grupos</field>
+        <field name="res_model">instituto.parte</field>
+        <field name="view_mode">graph,pivot</field>
+        <field name="context">{'group_by': 'grupo_id'}</field>
+    </record>
+
+    <record id="action_analisis_partes_motivos" model="ir.actions.act_window">
+        <field name="name">Análisis de incidencias por motivos</field>
+        <field name="res_model">instituto.parte</field>
+        <field name="view_mode">graph,pivot</field>
+        <field name="context">{'group_by': 'motivo_id'}</field>
+    </record>
+
+    <record id="action_analisis_partes_asignaturas" model="ir.actions.act_window">
+        <field name="name">Análisis de incidencias por asignaturas</field>
+        <field name="res_model">instituto.parte</field>
+        <field name="view_mode">graph,pivot</field>
+        <field name="context">{'group_by': 'asignatura_id'}</field>
+    </record>
 
     <record id="action_open_grupos" model="ir.actions.act_window">
         <field name="name">Grupos</field>
@@ -50,7 +78,12 @@
     <menuitem id="submenu_parte_crear" name="Crear Parte" parent="menu_parte_cat" action="action_open_partes" sequence="10"/>
 
     <menuitem id="menu_reportes_cat" name="Reportes" parent="menu_gestion_escolar_root" sequence="20"/>
-    <menuitem id="submenu_reportes_estadisticas" name="Estadísticas y Gráficos" parent="menu_reportes_cat" action="action_analisis_partes" sequence="10"/>
+    <menuitem id="submenu_reportes_estadisticas_alumnos" name="Estadísticas de alumnos" parent="menu_reportes_cat" action="action_analisis_partes_alumnos" sequence="10"/>
+    <menuitem id="submenu_reportes_estadisticas_profesores" name="Estadísticas de profesores" parent="menu_reportes_cat" action="action_analisis_partes_profesores" sequence="20"/>
+    <menuitem id="submenu_reportes_estadisticas_grupos" name="Estadísticas de grupos" parent="menu_reportes_cat" action="action_analisis_partes_grupos" sequence="30"/>
+    <menuitem id="submenu_reportes_estadisticas_motivos" name="Estadísticas de motivos" parent="menu_reportes_cat" action="action_analisis_partes_motivos" sequence="40"/>
+    <menuitem id="submenu_reportes_estadisticas_asignaturas" name="Estadísticas de asignaturas" parent="menu_reportes_cat" action="action_analisis_partes_asignaturas" sequence="50"/>
+
 
     <menuitem id="menu_gestion_cat" name="Gestión" parent="menu_gestion_escolar_root" sequence="30"/>
     <menuitem id="submenu_gestion_alumnos" name="Alumnos" parent="menu_gestion_cat" action="action_open_alumnos" sequence="10"/>
