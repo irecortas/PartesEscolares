@@ -22,12 +22,7 @@
                         <table class="parte-table">
                             <tr><th>Fecha</th><td><t t-esc="o.fecha"/></td></tr>
                             <tr><th>Alumno</th><td><t t-esc="o.alumno_id.name"/> <t t-esc="o.alumno_id.apellidos"/></td></tr>
-                            <tr><th>Grupos</th><td>
-                                <t t-foreach="o.grupo_ids" t-as="g">
-                                    <span t-esc="g.name"/>
-                                    <t t-if="not g_last">, </t>
-                                </t>
-                            </td></tr>
+                            <tr><th>Grupo</th><td><t t-esc="o.grupo_id.name"/></td></tr>
                             <tr><th>Profesor</th><td><t t-esc="o.profesor_id.name"/></td></tr>
                             <tr><th>Motivo</th><td><t t-esc="o.motivo_id.name"/></td></tr>
                         </table>
