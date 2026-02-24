@@ -86,11 +86,11 @@
 
 
     <menuitem id="menu_gestion_cat" name="Gestión" parent="menu_gestion_escolar_root" sequence="30"/>
-    <menuitem id="submenu_gestion_alumnos" name="Alumnos" parent="menu_gestion_cat" action="action_open_alumnos" sequence="10"/>
-    <menuitem id="submenu_gestion_profesores" name="Profesores" parent="menu_gestion_cat" action="action_open_profesores" sequence="20"/>
-    <menuitem id="submenu_gestion_grupos" name="Grupos" parent="menu_gestion_cat" action="action_open_grupos" sequence="30"/>
-    <menuitem id="submenu_gestion_motivos" name="Motivos" parent="menu_gestion_cat" action="action_open_motivos" sequence="40"/>
-    <menuitem id="submenu_gestion_asignaturas" name="Asignaturas" parent="menu_gestion_cat" action="action_open_asignaturas" sequence="50"/>
+    <menuitem id="submenu_gestion_alumnos" name="Alumnos" parent="menu_gestion_cat" action="action_open_alumnos" sequence="10" groups="partes_escolares.group_instituto_tutor"/>
+    <menuitem id="submenu_gestion_profesores" name="Profesores" parent="menu_gestion_cat" action="action_open_profesores" sequence="20" groups="partes_escolares.group_instituto_admin"/>
+    <menuitem id="submenu_gestion_grupos" name="Grupos" parent="menu_gestion_cat" action="action_open_grupos" sequence="30" groups="partes_escolares.group_instituto_admin"/>
+    <menuitem id="submenu_gestion_motivos" name="Motivos" parent="menu_gestion_cat" action="action_open_motivos" sequence="40" groups="partes_escolares.group_instituto_admin"/>
+    <menuitem id="submenu_gestion_asignaturas" name="Asignaturas" parent="menu_gestion_cat" action="action_open_asignaturas" sequence="50" groups="partes_escolares.group_instituto_admin"/>
     
 
 </odoo>

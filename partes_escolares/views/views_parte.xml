@@ -7,8 +7,8 @@
             <form string="Parte de Disciplina">
                 <header>
                     <button name="action_contactado" string="Contactar" type="object" states="pendiente" class="btn-primary"/>
-                    <button name="action_cerrado" string="Cerrar" type="object" states="contactado" class="btn-success"/>
-                    <button name="action_pendiente" string="Volver a Pendiente" type="object" states="contactado,cerrado" class="btn-secondary"/>
+                    <button name="action_cerrado" string="Cerrar" type="object" states="contactado" class="btn-success" groups="partes_escolares.group_instituto_admin"/>
+                    <button name="action_pendiente" string="Volver a Pendiente" type="object" states="contactado,cerrado" class="btn-secondary" groups="partes_escolares.group_instituto_admin"/>
                     <field name="state" widget="statusbar" statusbar_visible="pendiente,contactado,cerrado"/>
                 </header>
                 <sheet>
@@ -19,7 +19,7 @@
                     <group>
                         <group string="Alumno">
                             <field name="alumno_id" options="{'no_open': True}"/>
-                            <field name="grupo_id" readonly="1"/>
+                            <field name="grupo_id"/>
                         </group>
 
                         <group string="Reporte">
@@ -34,7 +34,7 @@
                         </group>
                     </group>
                     
-                    <group string="Información del Incidente" groups="partes_escolares.group_instituto_admin">
+                    <group string="Información del Incidente" groups="partes_escolares.group_instituto_profesor">
                         <field name="motivo_id" options="{'no_open': True}"/>
                     </group>
                     <group>
@@ -55,6 +55,7 @@
             <tree decoration-success="state == 'pendiente'" decoration-warning="state == 'contactado'" decoration-danger="state == 'cerrado'">
                 <field name="name"/>
                 <field name="alumno_id"/>
+                <field name="motivo_id"/>
                 <field name="fecha"/>
                 <field name="hora" widget="float_time"/>
                 <field name="state" widget="badge" decoration-success="state == 'pendiente'" decoration-warning="state == 'contactado'" decoration-danger="state == 'cerrado'"/>

@@ -18,10 +18,10 @@
                     <notebook>
                         <page string="Alumnos">
                             <field name="alumno_ids">
-                                <tree editable="bottom">
+                                <tree>
+                                    <field name="nia"/>
                                     <field name="name"/>
                                     <field name="apellidos"/>
-                                    <field name="nia"/>
                                 </tree>
                             </field>
                         </page>

@@ -16,7 +16,12 @@
 
                         <div class="header">
                             <h2 style="margin: 0;">Informe de Partes - Alumno: <t t-esc="alumno.name"/> <t t-esc="alumno.apellidos"/></h2>
-                            <p>NIA: <t t-esc="alumno.nia"/> | Grupo: <t t-esc="alumno.grupo_id.name"/></p>
+                            <p>NIA: <t t-esc="alumno.nia"/> | Grupos: 
+                                <t t-foreach="alumno.grupo_ids" t-as="g">
+                                    <span t-esc="g.name"/>
+                                    <t t-if="not g_last">, </t>
+                                </t>
+                            </p>
                         </div>
 
                         <div class="section">

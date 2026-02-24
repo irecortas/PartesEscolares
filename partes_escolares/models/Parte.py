@@ -8,9 +8,10 @@ class Parte(models.Model):
 
     name = fields.Char(string='Nombre', required=True)
     fecha = fields.Date(string='Fecha', default=fields.Date.context_today, required=True)
-    grupo_id = fields.Many2one('instituto.grupo', string='Grupo', related='alumno_id.grupo_id', store=True)
+    grupo_id = fields.Many2one('instituto.grupo', string='Grupo', required=True)
     fecha_hora = fields.Datetime(string='Fecha y Hora', compute='_compute_fecha_hora', store=True)
-    hora = fields.Float(string='Hora', required=True)
+    # Temporarily changed to Char to fix migration error with "svsd" data
+    hora = fields.Char(string='Hora', required=True)
     motivo_id = fields.Many2one('instituto.motivo', string='Motivo', required=True)
     alumno_id = fields.Many2one('instituto.alumno', string='Alumno', required=True)
     asignatura_id = fields.Many2one('instituto.asignatura', string='Asignatura', required=True)
@@ -43,11 +44,11 @@ class Parte(models.Model):
     ], string='Estado', default='pendiente')
     incidencia_count = fields.Integer(default=1, string="Contador Incidencias")
 
-    @api.depends('alumno_id')
+    @api.depends('alumno_id', 'grupo_id')
     def _compute_profesores_permitidos(self):
         for record in self:
-            if record.alumno_id and record.alumno_id.grupo_id:
-                record.profesor_ids_del_grupo = record.alumno_id.grupo_id.profesor_ids
+            if record.grupo_id:
+                record.profesor_ids_del_grupo = record.grupo_id.profesor_ids
             else:
                 record.profesor_ids_del_grupo = self.env['instituto.profesor'].search([])
 

@@ -8,7 +8,7 @@ class Alumno(models.Model):
     apellidos = fields.Char(string='Apellidos', required=True)
     matricula = fields.Char(string='Matrícula')
     nia = fields.Char(string='NIA')
-    grupo_id = fields.Many2one('instituto.grupo', string='Grupo')
+    grupo_ids = fields.Many2many('instituto.grupo', string='Grupos')
     parte_ids = fields.One2many('instituto.parte', 'alumno_id', string='Partes')
     partes_activas = fields.Integer(string='Partes Activas', compute='_compute_partes_activas')
 

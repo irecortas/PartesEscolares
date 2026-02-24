@@ -22,7 +22,12 @@
                         <table class="parte-table">
                             <tr><th>Fecha</th><td><t t-esc="o.fecha"/></td></tr>
                             <tr><th>Alumno</th><td><t t-esc="o.alumno_id.name"/> <t t-esc="o.alumno_id.apellidos"/></td></tr>
-                            <tr><th>Grupo</th><td><t t-esc="o.grupo_id.name"/></td></tr>
+                            <tr><th>Grupos</th><td>
+                                <t t-foreach="o.grupo_ids" t-as="g">
+                                    <span t-esc="g.name"/>
+                                    <t t-if="not g_last">, </t>
+                                </t>
+                            </td></tr>
                             <tr><th>Profesor</th><td><t t-esc="o.profesor_id.name"/></td></tr>
                             <tr><th>Motivo</th><td><t t-esc="o.motivo_id.name"/></td></tr>
                         </table>
@@ -83,7 +88,12 @@
                             <tr><th>Nombre</th><td><t t-esc="o.name"/></td></tr>
                             <tr><th>Apellidos</th><td><t t-esc="o.apellidos"/></td></tr>
                             <tr><th>Matrícula</th><td><t t-esc="o.matricula"/></td></tr>
-                            <tr><th>Grupo</th><td><t t-esc="o.grupo_id.name"/></td></tr>
+                            <tr><th>Grupos</th><td>
+                                <t t-foreach="o.grupo_ids" t-as="g">
+                                    <span t-esc="g.name"/>
+                                    <t t-if="not g_last">, </t>
+                                </t>
+                            </td></tr>
                         </table>
 
                         <h4 class="mt-4">Resumen de Incidencias</h4>

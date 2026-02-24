@@ -42,61 +42,61 @@
       <field name="name">María</field>
       <field name="apellidos">García</field>
       <field name="nia">A001</field>
-      <field name="grupo_id" ref="grupo_1a"/>
+      <field name="grupo_ids" eval="[(4, ref('grupo_1a'))]"/>
     </record>
     <record id="alumno_juan" model="instituto.alumno">
       <field name="name">Juan</field>
       <field name="apellidos">Pérez</field>
       <field name="nia">A002</field>
-      <field name="grupo_id" ref="grupo_1a"/>
+      <field name="grupo_ids" eval="[(4, ref('grupo_1a'))]"/>
     </record>
     <record id="alumno_lucia" model="instituto.alumno">
       <field name="name">Lucía</field>
       <field name="apellidos">Fernández</field>
       <field name="nia">B001</field>
-      <field name="grupo_id" ref="grupo_2b"/>
+      <field name="grupo_ids" eval="[(4, ref('grupo_2b'))]"/>
     </record>
     <record id="alumno_pedro" model="instituto.alumno">
       <field name="name">Pedro</field>
       <field name="apellidos">López</field>
       <field name="nia">A003</field>
-      <field name="grupo_id" ref="grupo_1a"/>
+      <field name="grupo_ids" eval="[(4, ref('grupo_1a'))]"/>
     </record>
     <record id="alumno_ana" model="instituto.alumno">
       <field name="name">Ana</field>
       <field name="apellidos">Martín</field>
       <field name="nia">B002</field>
-      <field name="grupo_id" ref="grupo_2b"/>
+      <field name="grupo_ids" eval="[(4, ref('grupo_2b'))]"/>
     </record>
     <record id="alumno_carlos" model="instituto.alumno">
       <field name="name">Carlos</field>
       <field name="apellidos">Ruiz</field>
       <field name="nia">A004</field>
-      <field name="grupo_id" ref="grupo_1a"/>
+      <field name="grupo_ids" eval="[(4, ref('grupo_1a'))]"/>
     </record>
     <record id="alumno_elena" model="instituto.alumno">
       <field name="name">Elena</field>
       <field name="apellidos">Sánchez</field>
       <field name="nia">B003</field>
-      <field name="grupo_id" ref="grupo_2b"/>
+      <field name="grupo_ids" eval="[(4, ref('grupo_2b'))]"/>
     </record>
     <record id="alumno_david" model="instituto.alumno">
       <field name="name">David</field>
       <field name="apellidos">Gómez</field>
       <field name="nia">A005</field>
-      <field name="grupo_id" ref="grupo_1a"/>
+      <field name="grupo_ids" eval="[(4, ref('grupo_1a'))]"/>
     </record>
     <record id="alumno_laura" model="instituto.alumno">
       <field name="name">Laura</field>
       <field name="apellidos">Díaz</field>
       <field name="nia">B004</field>
-      <field name="grupo_id" ref="grupo_2b"/>
+      <field name="grupo_ids" eval="[(4, ref('grupo_2b'))]"/>
     </record>
     <record id="alumno_miguel" model="instituto.alumno">
       <field name="name">Miguel</field>
       <field name="apellidos">Hernández</field>
       <field name="nia">A006</field>
-      <field name="grupo_id" ref="grupo_1a"/>
+      <field name="grupo_ids" eval="[(4, ref('grupo_1a'))]"/>
     </record>
 
 

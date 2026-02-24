@@ -8,12 +8,8 @@
                 <field name="name" string="Nombre del Alumno"/>
                 <field name="nia"/>
                 
-                <filter string="Alumnos con Grupo" name="con_grupo" domain="[('grupo_id', '!=', False)]"/>
+                <filter string="Alumnos con Grupo" name="con_grupo" domain="[('grupo_ids', '!=', False)]"/>
                 <filter string="Sin NIA" name="sin_nia" domain="[('nia', '=', False)]"/>
-                
-                <group expand="0" string="Agrupar por">
-                    <filter string="Por Grupo" name="group_by_grupo" context="{'group_by': 'grupo_id'}"/>
-                </group>
             </search>
         </field>
     </record>
@@ -22,12 +18,11 @@
         <field name="name">instituto.alumno.tree</field>
         <field name="model">instituto.alumno</field>
         <field name="arch" type="xml">
-            <tree>
-                <field name="name"/>
-                <field name="apellidos"/>
-                <field name="matricula"/>
-                <field name="nia" widget="badge"/>
-                <field name="grupo_id"/>
+            <tree string="Listado de Alumnos">
+                <field name="nia" string="NIA"/>
+                <field name="name" string="Nombre"/>
+                <field name="apellidos" string="Apellidos"/>
+                <field name="matricula" string="Matrícula"/>
             </tree>
         </field>
     </record>
@@ -49,7 +44,7 @@
                             <field name="partes_activas" widget="progressbar"/>
                         </group>
                          <group>
-                            <field name="grupo_id" options="{'no_open': True, 'no_create': True}" string="Grupo Asignado"/>
+                            <field name="grupo_ids" widget="many2many_tags" string="Grupos Asignados"/>
                         </group>
                     </group>
                     
@@ -68,7 +63,7 @@
                 <field name="apellidos"/>
                 <field name="matricula"/>
                 <field name="nia"/>
-                <field name="grupo_id"/>
+                <field name="grupo_ids"/>
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_card">
@@ -76,7 +71,7 @@
                                 <h4><field name="name"/> <field name="apellidos"/></h4>
                                 <p>Matrícula: <field name="matricula"/></p>
                                 <p>NIA: <field name="nia"/></p>
-                                <p>Grupo: <field name="grupo_id"/></p>
+                                <p>Grupo: <field name="grupo_ids"/></p>
                                 <div class="oe_kanban_bottom_right">
                                     <field name="parte_ids"/>
                                 </div>
