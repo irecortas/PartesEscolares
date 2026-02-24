@@ -8,7 +8,7 @@ class Parte(models.Model):
 
     name = fields.Char(string='Nombre', required=True)
     fecha = fields.Date(string='Fecha', default=fields.Date.context_today, required=True)
-    grupo_id = fields.Many2one('instituto.grupo', string='Grupo', related='alumno_id.grupo_id', store=True, required=True)
+    grupo_id = fields.Many2one('instituto.grupo', string='Grupo', related='alumno_id.grupo_id', store=True)
     fecha_hora = fields.Datetime(string='Fecha y Hora', compute='_compute_fecha_hora', store=True)
     hora = fields.Float(string='Hora', required=True)
     motivo_id = fields.Many2one('instituto.motivo', string='Motivo', required=True)
@@ -29,7 +29,7 @@ class Parte(models.Model):
     )
 
     descripcion = fields.Text(string='Detalles adicionales')
-    lugar_id = fields.Char(string='Lugar', required=True)
+    lugar = fields.Char(string='Lugar', required=True)
     acciones = fields.Text(string='Acciones tomadas')
     prioridad = fields.Selection([
         ('0', 'Baja'),

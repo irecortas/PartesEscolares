@@ -29,6 +29,7 @@
                                 domain="[('id', 'in', profesor_ids_del_grupo)]"/>
                             <field name="fecha" />
                             <field name="hora" widget="float_time"/>
+                            <field name="asignatura_id" options="{'no_open': True}"/>
                             <field name="lugar"/>
                         </group>
                     </group>

@@ -37,6 +37,6 @@
         </record>
 
         <!-- Menú para Asignatura -->
-        <menuitem id="menu_asignatura" name="Asignaturas" parent="menu_gestion_cat" action="action_asignatura"/>
+        <!-- <menuitem id="menu_asignatura" name="Asignaturas" parent="menu_gestion_cat" action="action_asignatura"/> -->
     </data>
 </odoo>

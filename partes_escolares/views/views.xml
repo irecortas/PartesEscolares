@@ -22,7 +22,7 @@
     <record id="action_analisis_partes_alumnos" model="ir.actions.act_window">
         <field name="name">Análisis de incidencias por alumnos</field>
         <field name="res_model">instituto.parte</field>
-        <field name="view_mode">tree,graph,pivot</field>
+        <field name="view_mode">graph,pivot</field>
         <field name="context">{'group_by': 'alumno_id'}</field>
     </record>
 
@@ -75,7 +75,7 @@
     <menuitem id="menu_gestion_escolar_root" name="Instituto" sequence="1"/>
 
     <menuitem id="menu_parte_cat" name="Parte" parent="menu_gestion_escolar_root" sequence="10"/>
-    <menuitem id="submenu_parte_crear" name="Crear Parte" parent="menu_parte_cat" action="action_open_partes" sequence="10"/>
+    <menuitem id="submenu_parte_crear" name="Ver Parte" parent="menu_parte_cat" action="action_open_partes" sequence="10"/>
 
     <menuitem id="menu_reportes_cat" name="Reportes" parent="menu_gestion_escolar_root" sequence="20"/>
     <menuitem id="submenu_reportes_estadisticas_alumnos" name="Estadísticas de alumnos" parent="menu_reportes_cat" action="action_analisis_partes_alumnos" sequence="10"/>

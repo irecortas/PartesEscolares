@@ -18,6 +18,7 @@
     # for the full list
     'category': 'Uncategorized',
     'version': '0.1',
+    'license': 'LGPL-3',
 
     'icon': 'static/description/icon.png',
 

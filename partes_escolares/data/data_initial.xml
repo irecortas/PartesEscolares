@@ -121,6 +121,8 @@
       <field name="profesor_id" ref="profesor_ana"/>
       <field name="lugar">Aula de 1º ESO</field>
       <field name="prioridad">1</field>
+      <field name="hora">10.5</field>
+      <field name="asignatura_id" ref="asignatura_matematicas"/>
       <field name="descripcion">Comportamiento disruptivo durante la clase.</field>
     </record>
     <record id="parte_2" model="instituto.parte">
@@ -131,6 +133,8 @@
       <field name="profesor_id" ref="profesor_carlos"/>
       <field name="lugar">Pasillo Central</field>
       <field name="prioridad">0</field>
+      <field name="hora">8.25</field>
+      <field name="asignatura_id" ref="asignatura_lengua"/>
       <field name="descripcion">Llegada tarde a primera hora.</field>
     </record>
     <record id="parte_3" model="instituto.parte">
@@ -141,6 +145,8 @@
       <field name="profesor_id" ref="profesor_ana"/>
       <field name="lugar">Gimnasio</field>
       <field name="prioridad">2</field>
+      <field name="hora">12.0</field>
+      <field name="asignatura_id" ref="asignatura_matematicas"/>
       <field name="descripcion">Rotura de balón durante educación física.</field>
     </record>
 
