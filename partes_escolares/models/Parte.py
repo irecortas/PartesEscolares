@@ -7,10 +7,10 @@ class Parte(models.Model):
     _description = 'Partes de Disciplina'
 
     name = fields.Char(string='Nombre', required=True)
-    fecha = fields.Date(string='Fecha', default=fields.Date.context_today)
-    grupo_id = fields.Many2one('instituto.grupo', string='Grupo', related='alumno_id.grupo_id', store=True)
+    fecha = fields.Date(string='Fecha', default=fields.Date.context_today, required=True)
+    grupo_id = fields.Many2one('instituto.grupo', string='Grupo', related='alumno_id.grupo_id', store=True, required=True)
     fecha_hora = fields.Datetime(string='Fecha y Hora', compute='_compute_fecha_hora', store=True)
-    hora = fields.Float(string='Hora')
+    hora = fields.Float(string='Hora', required=True)
     motivo_id = fields.Many2one('instituto.motivo', string='Motivo', required=True)
     alumno_id = fields.Many2one('instituto.alumno', string='Alumno', required=True)
     
