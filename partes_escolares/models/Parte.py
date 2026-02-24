@@ -27,7 +27,7 @@ class Parte(models.Model):
     )
 
     descripcion = fields.Text(string='Detalles adicionales')
-    lugar = fields.Char(string='Lugar')
+    lugar_id = fields.Char(string='Lugar', required=True)
     acciones = fields.Text(string='Acciones tomadas')
     prioridad = fields.Selection([
         ('0', 'Baja'),
@@ -45,12 +45,7 @@ class Parte(models.Model):
     def _compute_profesores_permitidos(self):
         for record in self:
             if record.alumno_id and record.alumno_id.grupo_id:
-                # Find all professors linked to the group's subjects
-                profesores = record.alumno_id.grupo_id.asignatura_ids.mapped('profesor_ids')
-                # Also include the tutor
-                if record.alumno_id.grupo_id.tutor_id:
-                    profesores |= record.alumno_id.grupo_id.tutor_id
-                record.profesor_ids_del_grupo = profesores
+                record.profesor_ids_del_grupo = record.alumno_id.grupo_id.profesor_ids
             else:
                 record.profesor_ids_del_grupo = self.env['instituto.profesor'].search([])
 
