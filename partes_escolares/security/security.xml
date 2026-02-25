@@ -5,7 +5,7 @@
         <field name="description">Niveles de acceso para el sistema del instituto</field>
     </record>
 
-    <record id="group_instituto_profesor" model="res.groups">
+    <record id="group_instituto_profe" model="res.groups">
         <field name="name">Profesor</field>
         <field name="category_id" ref="module_category_instituto"/>
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
@@ -14,7 +14,7 @@
     <record id="group_instituto_tutor" model="res.groups">
         <field name="name">Tutor</field>
         <field name="category_id" ref="module_category_instituto"/>
-        <field name="implied_ids" eval="[(4, ref('group_instituto_profesor'))]"/>
+        <field name="implied_ids" eval="[(4, ref('group_instituto_profe'))]"/>
     </record>
 
     <record id="group_instituto_admin" model="res.groups">
@@ -29,7 +29,7 @@
     <record id="rule_parte_profesor_propios" model="ir.rule">
         <field name="name">Profesores solo ven sus propios partes</field>
         <field name="model_id" ref="model_instituto_parte"/>
-        <field name="groups" eval="[(4, ref('group_instituto_profesor'))]"/>
+        <field name="groups" eval="[(4, ref('group_instituto_profe'))]"/>
         <field name="domain_force">['|', ('profesor_id.user_id', '=', user.id), ('create_uid', '=', user.id)]</field>
     </record>
 
