@@ -39,6 +39,7 @@
         'views/views_grupo.xml',
         'views/views_profesor.xml',
         'views/views_motivo.xml',
+        'views/views_lugar.xml',
         'views/views.xml',
         'views/views_asignatura.xml',
         'data/data_initial.xml',

@@ -12,7 +12,6 @@
                             <field name="tutor_id"/>
                         </group>
                         <group>
-                            <!-- Espacio para otros campos si se desea -->
                         </group>
                     </group>
                     <notebook>

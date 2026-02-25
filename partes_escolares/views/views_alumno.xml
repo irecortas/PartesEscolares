@@ -41,7 +41,7 @@
                         <group>
                             <field name="matricula" string="Matrícula"/>
                             <field name="nia" string="NIA"/>
-                            <field name="partes_activas" widget="progressbar"/>
+                            <field name="partes_activas"/>
                         </group>
                          <group>
                             <field name="grupo_ids" widget="many2many_tags" string="Grupos Asignados"/>

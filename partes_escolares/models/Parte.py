@@ -30,7 +30,7 @@ class Parte(models.Model):
     )
 
     descripcion = fields.Text(string='Detalles adicionales')
-    lugar = fields.Char(string='Lugar', required=True)
+    lugar_id = fields.Many2one('instituto.lugar', string='Lugar', required=True)
     acciones = fields.Text(string='Acciones tomadas')
     prioridad = fields.Selection([
         ('0', 'Baja'),
