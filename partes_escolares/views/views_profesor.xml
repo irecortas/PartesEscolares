@@ -17,6 +17,10 @@
         <field name="model">instituto.profesor</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="action_create_user" string="Crear Usuario Odoo" type="object" 
+                            class="btn-primary" attrs="{'invisible': [('user_id', '!=', False)]}"/>
+                </header>
                 <sheet>
                     <div class="oe_title">
                         <label for="name" string="Nombre del Docente"/>
@@ -24,8 +28,13 @@
                     </div>
 
                     <group>
-                        <field name="cedula"/>
-                        <field name="email"/>
+                        <group>
+                            <field name="cedula"/>
+                            <field name="email"/>
+                        </group>
+                        <group>
+                            <field name="user_id"/>
+                        </group>
                     </group>
 
 

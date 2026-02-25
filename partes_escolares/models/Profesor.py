@@ -1,4 +1,5 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, _
+from odoo.exceptions import UserError
 
 class Profesor(models.Model):
     _name = 'instituto.profesor'
@@ -12,7 +13,28 @@ class Profesor(models.Model):
 
     profesor_count = fields.Integer(default=1, string="Contador Profesores")
 
-    user_id = fields.Many2one('res.users', string='Usuario de Odoo', help="Usuario vinculado a este profesor") #?
+    def action_create_user(self):
+        self.ensure_one()
+        if self.user_id:
+            raise UserError(_("Este profesor ya tiene un usuario vinculado."))
+        if not self.email:
+            raise UserError(_("Se requiere un correo electrónico para crear el usuario."))
+        
+        user_vals = {
+            'name': self.name,
+            'login': self.email,
+            'email': self.email,
+            'groups_id': [(6, 0, [self.env.ref('partes_escolares.group_instituto_profesor').id])]
+        }
+        user = self.env['res.users'].create(user_vals)
+        self.user_id = user.id
+        return True
+
+    user_id = fields.Many2one('res.users', string='Usuario de Odoo', help="Usuario vinculado a este profesor") 
+    
+    _sql_constraints = [
+        ('user_id_unique', 'unique(user_id)', 'El usuario de Odoo ya está vinculado a otro profesor.')
+    ]
 
     parte_ids = fields.One2many('instituto.parte', 'profesor_id', string='Partes Emitidos')
     grupo_tutorizado_ids = fields.One2many('instituto.grupo', 'tutor_id', string='Grupos Tutorizados')

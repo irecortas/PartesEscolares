@@ -45,7 +45,7 @@
                                             <td><t t-esc="parte.motivo_id.name"/></td>
                                             <td><t t-esc="parte.profesor_id.name"/></td>
                                             <td><t t-esc="parte.state"/></td>
-                                            <td><t t-esc="parte.lugar"/></td>
+                                            <td><t t-esc="parte.lugar_id.name"/></td>
                                         </tr>
                                     </t>
                                 </tbody>

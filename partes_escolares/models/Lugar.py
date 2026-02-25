@@ -5,4 +5,7 @@ class Lugar(models.Model):
     _description = 'Lugar'
 
     name = fields.Char(string='Nombre del lugar', required=True)
-    parte_ids = fields.One2many('instituto.parte', 'lugar_id', string='Partes Emitidos')
+    
+    lugar_count = fields.Integer(default=1, string="Contador Lugares")
+
+    parte_ids = fields.One2many('instituto.parte', 'lugar_id', string='Partes con este motivo')

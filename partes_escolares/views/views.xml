@@ -82,7 +82,7 @@
 
     <record id="action_analisis_partes_lugar" model="ir.actions.act_window">
         <field name="name">Análisis de incidencias por lugares</field>
-        <field name="res_model">instituto.lugar</field>
+        <field name="res_model">instituto.parte</field>
         <field name="view_mode">graph,pivot</field>
         <field name="context">{'group_by': 'lugar_id'}</field>
     </record>

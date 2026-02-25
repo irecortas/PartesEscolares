@@ -13,6 +13,15 @@
       <field name="name">Daño de material</field>
     </record>
 
+    <!-- Lugares -->
+    <record id="lugar_aula" model="instituto.lugar">
+      <field name="name">Aula </field>
+    </record>
+    <record id="lugar_pasillo" model="instituto.lugar">
+      <field name="name">Pasillo Central</field>
+    </record>
+   
+
     <!-- Profesores de ejemplo -->
     <record id="profesor_ana" model="instituto.profesor">
       <field name="name">Ana López</field>
@@ -119,7 +128,7 @@
       <field name="motivo_id" ref="motivo_falta_respeto"/>
       <field name="alumno_id" ref="alumno_maria"/>
       <field name="profesor_id" ref="profesor_ana"/>
-      <field name="lugar">Aula de 1º ESO</field>
+      <field name="lugar_id" ref="lugar_aula"/>
       <field name="prioridad">1</field>
       <field name="hora">10.5</field>
       <field name="asignatura_id" ref="asignatura_matematicas"/>
@@ -131,7 +140,7 @@
       <field name="motivo_id" ref="motivo_retraso"/>
       <field name="alumno_id" ref="alumno_juan"/>
       <field name="profesor_id" ref="profesor_carlos"/>
-      <field name="lugar">Pasillo Central</field>
+      <field name="lugar_id" ref="lugar_pasillo"/>
       <field name="prioridad">0</field>
       <field name="hora">8.25</field>
       <field name="asignatura_id" ref="asignatura_lengua"/>
@@ -143,7 +152,7 @@
       <field name="motivo_id" ref="motivo_dano_material"/>
       <field name="alumno_id" ref="alumno_lucia"/>
       <field name="profesor_id" ref="profesor_ana"/>
-      <field name="lugar">Gimnasio</field>
+      <field name="lugar_id" ref="lugar_gimnasio"/>
       <field name="prioridad">2</field>
       <field name="hora">12.0</field>
       <field name="asignatura_id" ref="asignatura_matematicas"/>
