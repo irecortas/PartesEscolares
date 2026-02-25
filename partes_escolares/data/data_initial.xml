@@ -15,7 +15,7 @@
 
     <!-- Lugares -->
     <record id="lugar_aula" model="instituto.lugar">
-      <field name="name">Aula </field>
+      <field name="name">Aula</field>
     </record>
     <record id="lugar_pasillo" model="instituto.lugar">
       <field name="name">Pasillo Central</field>
@@ -132,6 +132,7 @@
       <field name="prioridad">1</field>
       <field name="hora">10.5</field>
       <field name="asignatura_id" ref="asignatura_matematicas"/>
+      <field name="grupo_id" ref="grupo_1a"/>
       <field name="descripcion">Comportamiento disruptivo durante la clase.</field>
     </record>
     <record id="parte_2" model="instituto.parte">
@@ -144,6 +145,7 @@
       <field name="prioridad">0</field>
       <field name="hora">8.25</field>
       <field name="asignatura_id" ref="asignatura_lengua"/>
+      <field name="grupo_id" ref="grupo_1a"/>
       <field name="descripcion">Llegada tarde a primera hora.</field>
     </record>
     <record id="parte_3" model="instituto.parte">
@@ -152,10 +154,11 @@
       <field name="motivo_id" ref="motivo_dano_material"/>
       <field name="alumno_id" ref="alumno_lucia"/>
       <field name="profesor_id" ref="profesor_ana"/>
-      <field name="lugar_id" ref="lugar_gimnasio"/>
+      <field name="lugar_id" ref="lugar_aula"/> <!-- Fixed default -->
       <field name="prioridad">2</field>
       <field name="hora">12.0</field>
       <field name="asignatura_id" ref="asignatura_matematicas"/>
+      <field name="grupo_id" ref="grupo_2b"/>
       <field name="descripcion">Rotura de balón durante educación física.</field>
     </record>
 
