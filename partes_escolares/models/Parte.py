@@ -56,7 +56,7 @@ class Parte(models.Model):
         for record in self:
             record.es_admin = is_admin
 
-    @api.depends('alumno_id', 'grupo_id')
+    @api.depends('grupo_id')
     def _compute_profesores_permitidos(self):
         for record in self:
             if record.grupo_id:
