@@ -23,12 +23,13 @@
     'icon': 'static/description/icon.png',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'web'],
 
     # always loaded
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'wizard/xml_import_wizard_view.xml',
         'reports/report_templates.xml',
         'reports/report_alumno_partes.xml',
         'reports/report_partes_activos.xml',
@@ -39,17 +40,20 @@
         'views/views_grupo.xml',
         'views/views_profesor.xml',
         'views/views_motivo.xml',
-        'views/views_lugar.xml',
+        'views/views_aula.xml',
         'views/views.xml',
         'views/views_asignatura.xml',
         'data/data_initial.xml',
         'data/aulas.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'partes_escolares/static/src/js/alumno_list_view.js',
+            'partes_escolares/static/src/xml/alumno_list_view.xml',
+        ],
+    },
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
 }
-
-
-# adsd

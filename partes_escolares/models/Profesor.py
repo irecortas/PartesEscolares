@@ -6,11 +6,9 @@ class Profesor(models.Model):
     _description = 'Registro de Profesores'
 
     name = fields.Char(string='Nombre del Profesor', required=True)
-    # especialidad = fields.Char(string='Especialidad')
-    
     cedula = fields.Char(string='Cédula/DNI')
     email = fields.Char(string='Correo Electrónico') 
-
+    
     profesor_count = fields.Integer(default=1, string="Contador Profesores")
     
     user_role = fields.Selection([
@@ -27,7 +25,6 @@ class Profesor(models.Model):
         if not self.email:
             raise UserError(_("Se requiere un correo electrónico para crear el usuario."))
         
-        # Determinar el grupo ID según el rol seleccionado
         group_ref = 'partes_escolares.group_instituto_profe'
         if self.user_role == 'tutor':
             group_ref = 'partes_escolares.group_instituto_tutor'
@@ -52,4 +49,3 @@ class Profesor(models.Model):
 
     parte_ids = fields.One2many('instituto.parte', 'profesor_id', string='Partes Emitidos')
     grupo_tutorizado_id = fields.One2many('instituto.grupo', 'tutor_id', string='Grupos Tutorizados')
-    # asignatura_ids = fields.Many2many('instituto.asignatura', string='Asignaturas') #?

@@ -5,6 +5,6 @@ class Asignatura(models.Model):
     _description = 'Asignaturas'
 
     name = fields.Char(string='Nombre de la Asignatura', required=True)
-    # profesor_ids = fields.Many2many('instituto.profesor', string='Profesores')
-    # grupo_ids = fields.Many2many('instituto.grupo', string='Grupos')
+    profesor_ids = fields.Many2many('instituto.profesor', string='Profesores')
+    grupo_ids = fields.Many2many('instituto.grupo', string='Grupos')
     parte_ids = fields.One2many('instituto.parte', 'asignatura_id', string='Partes Emitidos')

@@ -23,11 +23,11 @@
                         </group>
 
                         <group string="Reporte">
-                            <field name="profesor_id" invisible="1"/>
                             <field name="es_admin" invisible="1"/>
                             <field name="profesor_id" 
                                 options="{'no_open': True}" 
-                                attrs="{'readonly': [('es_admin', '=', False)]}"/>
+                                attrs="{'readonly': [('es_admin', '=', False)]}"
+                                force_save="1"/>
                             <field name="fecha" />
                             <field name="hora" widget="float_time"/>
                             <field name="asignatura_id" options="{'no_open': True}"/>
@@ -35,7 +35,7 @@
                         </group>
                     </group>
                     
-                    <group string="Información del Incidente" groups="partes_escolares.group_instituto_profesor">
+                    <group string="Información del Incidente" groups="partes_escolares.group_instituto_profe">
                         <field name="motivo_id" options="{'no_open': True}"/>
                     </group>
                     <group>

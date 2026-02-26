@@ -14,12 +14,7 @@
     </record>
 
     <!-- Lugares -->
-    <record id="lugar_aula" model="instituto.lugar">
-      <field name="name">Aula</field>
-    </record>
-    <record id="lugar_pasillo" model="instituto.lugar">
-      <field name="name">Pasillo Central</field>
-    </record>
+   
    
 
     <!-- Profesores de ejemplo -->
@@ -71,43 +66,6 @@
       <field name="nia">A003</field>
       <field name="grupo_ids" eval="[(4, ref('grupo_1a'))]"/>
     </record>
-    <record id="alumno_ana" model="instituto.alumno">
-      <field name="name">Ana</field>
-      <field name="apellidos">Martín</field>
-      <field name="nia">B002</field>
-      <field name="grupo_ids" eval="[(4, ref('grupo_2b'))]"/>
-    </record>
-    <record id="alumno_carlos" model="instituto.alumno">
-      <field name="name">Carlos</field>
-      <field name="apellidos">Ruiz</field>
-      <field name="nia">A004</field>
-      <field name="grupo_ids" eval="[(4, ref('grupo_1a'))]"/>
-    </record>
-    <record id="alumno_elena" model="instituto.alumno">
-      <field name="name">Elena</field>
-      <field name="apellidos">Sánchez</field>
-      <field name="nia">B003</field>
-      <field name="grupo_ids" eval="[(4, ref('grupo_2b'))]"/>
-    </record>
-    <record id="alumno_david" model="instituto.alumno">
-      <field name="name">David</field>
-      <field name="apellidos">Gómez</field>
-      <field name="nia">A005</field>
-      <field name="grupo_ids" eval="[(4, ref('grupo_1a'))]"/>
-    </record>
-    <record id="alumno_laura" model="instituto.alumno">
-      <field name="name">Laura</field>
-      <field name="apellidos">Díaz</field>
-      <field name="nia">B004</field>
-      <field name="grupo_ids" eval="[(4, ref('grupo_2b'))]"/>
-    </record>
-    <record id="alumno_miguel" model="instituto.alumno">
-      <field name="name">Miguel</field>
-      <field name="apellidos">Hernández</field>
-      <field name="nia">A006</field>
-      <field name="grupo_ids" eval="[(4, ref('grupo_1a'))]"/>
-    </record>
-
 
     <!-- Asignaturas -->
     <record id="asignatura_matematicas" model="instituto.asignatura">
@@ -123,43 +81,16 @@
 
     <!-- Partes de ejemplo -->
     <record id="parte_1" model="instituto.parte">
-      <field name="name">Incidente en clase</field>
+      <field name="name">Parte 1</field>
       <field name="fecha">2023-09-01</field>
       <field name="motivo_id" ref="motivo_falta_respeto"/>
       <field name="alumno_id" ref="alumno_maria"/>
       <field name="profesor_id" ref="profesor_ana"/>
-      <field name="lugar_id" ref="lugar_aula"/>
-      <field name="prioridad">1</field>
+      <field name="aula_id" ref="aula_101"/>
       <field name="hora">10.5</field>
       <field name="asignatura_id" ref="asignatura_matematicas"/>
       <field name="grupo_id" ref="grupo_1a"/>
       <field name="descripcion">Comportamiento disruptivo durante la clase.</field>
-    </record>
-    <record id="parte_2" model="instituto.parte">
-      <field name="name">Retraso matutino</field>
-      <field name="fecha">2023-09-02</field>
-      <field name="motivo_id" ref="motivo_retraso"/>
-      <field name="alumno_id" ref="alumno_juan"/>
-      <field name="profesor_id" ref="profesor_carlos"/>
-      <field name="lugar_id" ref="lugar_pasillo"/>
-      <field name="prioridad">0</field>
-      <field name="hora">8.25</field>
-      <field name="asignatura_id" ref="asignatura_lengua"/>
-      <field name="grupo_id" ref="grupo_1a"/>
-      <field name="descripcion">Llegada tarde a primera hora.</field>
-    </record>
-    <record id="parte_3" model="instituto.parte">
-      <field name="name">Daño en material</field>
-      <field name="fecha">2023-09-03</field>
-      <field name="motivo_id" ref="motivo_dano_material"/>
-      <field name="alumno_id" ref="alumno_lucia"/>
-      <field name="profesor_id" ref="profesor_ana"/>
-      <field name="lugar_id" ref="lugar_aula"/> <!-- Fixed default -->
-      <field name="prioridad">2</field>
-      <field name="hora">12.0</field>
-      <field name="asignatura_id" ref="asignatura_matematicas"/>
-      <field name="grupo_id" ref="grupo_2b"/>
-      <field name="descripcion">Rotura de balón durante educación física.</field>
     </record>
 
   </data>

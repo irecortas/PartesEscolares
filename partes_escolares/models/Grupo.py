@@ -7,15 +7,9 @@ class Grupo(models.Model):
     name = fields.Char(string='Nombre del Grupo', required=True)
     grupo_count = fields.Integer(default=1, string="Contador Grupos")
     alumno_ids = fields.Many2many('instituto.alumno', string='Alumnos')
-    tutor_id = fields.Many2one('instituto.profesor', string='Tutor',required=True)
-    #asignatura_ids = fields.Many2many('instituto.asignatura', string='Asignaturas')
-    #profesor_ids = fields.Many2many('instituto.profesor', string='Profesores', compute='_compute_profesor_ids')
-
-    # @api.depends('asignatura_ids.profesor_ids')
-    # def _compute_profesor_ids(self):
-        # for record in self:
-            # record.tutor_id = record.asignatura_ids.mapped('profesor_ids')
-   
+    tutor_id = fields.Many2one('instituto.profesor', string='Tutor', required=True)
+    asignatura_ids = fields.Many2many('instituto.asignatura', string='Asignaturas')
+    
     _sql_constraints = [
         ('unique_tutor_grupo', 
          'unique(tutor_id)', 

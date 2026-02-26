@@ -4,7 +4,7 @@ access_grupo_lectura,Acceso de profesor a grupo,model_instituto_grupo,group_inst
 access_profesor_lectura,Acceso de profesor a profesor,model_instituto_profesor,group_instituto_profe,1,0,0,0
 access_motivo_lectura,Acceso de profesor a motivo,model_instituto_motivo,group_instituto_profe,1,0,0,0
 access_asignatura_lectura,Acceso de profesor a asignatura,model_instituto_asignatura,group_instituto_profe,1,0,0,0
-access_lugar_lectura,Acceso de profesor a lugar,model_instituto_lugar,group_instituto_profe,1,1,1,0
+access_aula_lectura,Acceso de profesor a aula,model_instituto_aula,group_instituto_profe,1,1,1,0
 access_parte_profesor,Acceso de profesor a parte,model_instituto_parte,group_instituto_profe,1,1,1,0
 access_parte_tutor,parte.tutor,model_instituto_parte,group_instituto_tutor,1,1,1,0
 access_alumno_admin,alumno.admin,model_instituto_alumno,group_instituto_admin,1,1,1,1
@@ -13,4 +13,6 @@ access_profesor_admin,profesor.admin,model_instituto_profesor,group_instituto_ad
 access_parte_admin,parte.admin,model_instituto_parte,group_instituto_admin,1,1,1,1
 access_motivo_admin,motivo.admin,model_instituto_motivo,group_instituto_admin,1,1,1,1
 access_asignatura_admin,asignatura.admin,model_instituto_asignatura,group_instituto_admin,1,1,1,1
-access_lugar_admin,lugar.admin,model_instituto_lugar,group_instituto_admin,1,1,1,1
+access_aula_admin,aula.admin,model_instituto_aula,group_instituto_admin,1,1,1,1
+access_xml_import_wizard,xml.import.wizard,model_xml_import_wizard,partes_escolares.group_instituto_admin,1,1,1,1
+access_xml_export_wizard,xml.export.wizard,model_xml_export_wizard,partes_escolares.group_instituto_admin,1,1,1,1

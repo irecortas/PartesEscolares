@@ -18,7 +18,7 @@
         <field name="name">instituto.alumno.tree</field>
         <field name="model">instituto.alumno</field>
         <field name="arch" type="xml">
-            <tree string="Listado de Alumnos">
+            <tree string="Listado de Alumnos" js_class="alumno_list_view_buttons">
                 <field name="nia" string="NIA"/>
                 <field name="name" string="Nombre"/>
                 <field name="apellidos" string="Apellidos"/>
@@ -33,6 +33,7 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+
                     <group>
                         <group>
                             <field name="name" string="Nombre"/>
@@ -59,6 +60,7 @@
         <field name="model">instituto.alumno</field>
         <field name="arch" type="xml">
             <kanban>
+
                 <field name="name"/>
                 <field name="apellidos"/>
                 <field name="matricula"/>

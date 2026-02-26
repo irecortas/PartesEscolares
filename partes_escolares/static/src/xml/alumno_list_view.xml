@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="partes_escolares.AlumnoListView.Buttons" t-inherit="web.ListView.Buttons" t-inherit-mode="primary">
+        <xpath expr="//button[contains(@class, 'o_list_button_add')]" position="after">
+            <button type="button" class="btn btn-primary ms-1" t-on-click="onImportXml">
+                Importar XML
+            </button>
+            <button type="button" class="btn btn-secondary ms-1" t-on-click="onExportXml">
+                Exportar XML
+            </button>
+        </xpath>
+    </t>
+</templates>

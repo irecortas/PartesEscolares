@@ -10,4 +10,4 @@ class Aula(models.Model):
     
     aula_count = fields.Integer(default=1, string="Contador aulas")
 
-    parte_ids = fields.One2many('instituto.parte', 'lugaraula_id', string='Partes con esta aula')
+    parte_ids = fields.One2many('instituto.parte', 'aula_id', string='Partes con esta aula')
