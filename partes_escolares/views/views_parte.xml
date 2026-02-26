@@ -19,14 +19,16 @@
                     <group>
                         <group string="Alumno">
                             <field name="alumno_id" options="{'no_open': True}"/>
-                            <field name="grupo_id"/>
+                            <field name="grupo_id" readonly="1"/>
                         </group>
 
                         <group string="Reporte">
                             <field name="profesor_ids_del_grupo" invisible="1"/>
+                            <field name="es_admin" invisible="1"/>
                             <field name="profesor_id" 
                                 options="{'no_open': True}" 
-                                domain="[('id', 'in', profesor_ids_del_grupo)]"/>
+                                domain="[('id', 'in', profesor_ids_del_grupo)]"
+                                attrs="{'readonly': [('es_admin', '=', False)]}"/>
                             <field name="fecha" />
                             <field name="hora" widget="float_time"/>
                             <field name="asignatura_id" options="{'no_open': True}"/>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <data noupdate="1">
     <record id="module_category_instituto" model="ir.module.category">
         <field name="name">Gestión Escolar</field>
         <field name="description">Niveles de acceso para el sistema del instituto</field>
@@ -23,6 +24,7 @@
         <field name="implied_ids" eval="[(4, ref('group_instituto_tutor'))]"/>
         <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
     </record>
+    </data>
 
     <!-- Reglas de Registro (Record Rules) -->
     

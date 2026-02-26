@@ -5,7 +5,7 @@ access_grupo_lectura,Acceso de profesor a grupo,model_grupo,group_instituto_prof
 access_profesor_lectura,Acceso de profesor a profesor,model_profesor,group_instituto_profe,1,0,0,0
 access_motivo_lectura,Acceso de profesor a motivo,model_motivo,group_instituto_profe,1,0,0,0
 access_asignatura_lectura,Acceso de profesor a asignatura,model_asignatura,group_instituto_profe,1,0,0,0
-access_lugar_lectura,Acceso de profesor a lugar,model_lugar,group_instituto_profe,1,0,1,0
+access_lugar_lectura,Acceso de profesor a lugar,model_lugar,group_instituto_profe,1,1,1,0
 access_parte_profesor,Acceso de profesor a parte,model_parte,group_instituto_profe,1,1,1,0
 
 
