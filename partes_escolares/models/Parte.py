@@ -83,6 +83,17 @@ class Parte(models.Model):
             else:
                 record.fecha_hora = False
 
+    @api.depends('incidencia_count')
+    def _compute_nombre(self):
+        for record in self:
+            if record.incidencia_count:
+                try:
+                    record.name = f"Parte {record.incidencia_count}"
+                except Exception:
+                    record.name = fields.Char(string='Nombre', required=True)
+            else:
+                record.name = fields.Char(string='Nombre', required=True)
+
     def action_pendiente(self):
         self.write({'state': 'pendiente'})
 
