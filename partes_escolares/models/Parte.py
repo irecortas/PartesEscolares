@@ -10,7 +10,6 @@ class Parte(models.Model):
     fecha = fields.Date(string='Fecha', default=fields.Date.context_today, required=True)
     grupo_id = fields.Many2one('instituto.grupo', string='Grupo', required=True)
     fecha_hora = fields.Datetime(string='Fecha y Hora', compute='_compute_fecha_hora', store=True)
-    # Temporarily changed to Char to fix migration error with "svsd" data
     hora = fields.Char(string='Hora', required=True)
     motivo_id = fields.Many2one('instituto.motivo', string='Motivo', required=True)
     alumno_id = fields.Many2one('instituto.alumno', string='Alumno', required=True)
@@ -24,20 +23,9 @@ class Parte(models.Model):
         default=lambda self: self.env['instituto.profesor'].search([('user_id', '=', self.env.user.id)], limit=1)
     )
 
-    profesor_ids_del_grupo = fields.Many2many(
-        'instituto.profesor', 
-        compute='_compute_profesores_permitidos',
-        string='Profesores Permitidos'
-    )
-
     descripcion = fields.Text(string='Detalles adicionales')
     lugar_id = fields.Many2one('instituto.lugar', string='Lugar', required=True)
     acciones = fields.Text(string='Acciones tomadas')
-    prioridad = fields.Selection([
-        ('0', 'Baja'),
-        ('1', 'Media'),
-        ('2', 'Alta'),
-    ], string='Prioridad', default='0')
     state = fields.Selection([
         ('pendiente', 'Pendiente de contactar'),
         ('contactado', 'Contactado'),
@@ -55,15 +43,6 @@ class Parte(models.Model):
         is_admin = self.env.user.has_group('partes_escolares.group_instituto_admin')
         for record in self:
             record.es_admin = is_admin
-
-    @api.depends('grupo_id')
-    def _compute_profesores_permitidos(self):
-        for record in self:
-            if record.grupo_id:
-                record.profesor_ids_del_grupo = record.grupo_id.profesor_ids
-            else:
-                record.profesor_ids_del_grupo = self.env['instituto.profesor'].search([])
-
 
     @api.onchange('alumno_id')
     def _onchange_alumno_id(self):
@@ -95,7 +74,6 @@ class Parte(models.Model):
         for record in self:
             if record.fecha and record.hora:
                 try:
-                    # Odoo stores Datetime in UTC. 
                     hour = int(record.hora)
                     minute = int((record.hora - hour) * 60)
                     dt_str = f"{record.fecha} {hour:02d}:{minute:02d}:00"

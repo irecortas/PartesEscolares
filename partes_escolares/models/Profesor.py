@@ -28,7 +28,7 @@ class Profesor(models.Model):
             raise UserError(_("Se requiere un correo electrónico para crear el usuario."))
         
         # Determinar el grupo ID según el rol seleccionado
-        group_ref = 'partes_escolares.group_instituto_profesor'
+        group_ref = 'partes_escolares.group_instituto_profe'
         if self.user_role == 'tutor':
             group_ref = 'partes_escolares.group_instituto_tutor'
         elif self.user_role == 'admin':
@@ -38,7 +38,7 @@ class Profesor(models.Model):
             'name': self.name,
             'login': self.email,
             'email': self.email,
-            'groups_id': [(6, 0, [self.env.ref(group_ref).id])]
+            'group_id': (6, 0, [self.env.ref(group_ref).id])
         }
         user = self.env['res.users'].create(user_vals)
         self.user_id = user.id
@@ -51,5 +51,5 @@ class Profesor(models.Model):
     ]
 
     parte_ids = fields.One2many('instituto.parte', 'profesor_id', string='Partes Emitidos')
-    grupo_tutorizado_ids = fields.One2many('instituto.grupo', 'tutor_id', string='Grupos Tutorizados')
-    asignatura_ids = fields.Many2many('instituto.asignatura', string='Asignaturas') #?
+    grupo_tutorizado_id = fields.One2many('instituto.grupo', 'tutor_id', string='Grupos Tutorizados')
+    # asignatura_ids = fields.Many2many('instituto.asignatura', string='Asignaturas') #?
