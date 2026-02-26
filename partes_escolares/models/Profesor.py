@@ -6,7 +6,7 @@ class Profesor(models.Model):
     _description = 'Registro de Profesores'
 
     name = fields.Char(string='Nombre del Profesor', required=True)
-    especialidad = fields.Char(string='Especialidad')
+    # especialidad = fields.Char(string='Especialidad')
     
     cedula = fields.Char(string='Cédula/DNI')
     email = fields.Char(string='Correo Electrónico') 

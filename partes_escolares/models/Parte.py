@@ -20,8 +20,9 @@ class Parte(models.Model):
     profesor_id = fields.Many2one(
         'instituto.profesor', 
         string='Profesor',
+        required=True,
         default=lambda self: self.env['instituto.profesor'].search([('user_id', '=', self.env.user.id)], limit=1)
-    ) #?
+    )
 
     profesor_ids_del_grupo = fields.Many2many(
         'instituto.profesor', 
@@ -44,7 +45,18 @@ class Parte(models.Model):
     ], string='Estado', default='pendiente')
     incidencia_count = fields.Integer(default=1, string="Contador Incidencias")
 
-    @api.depends('alumno_id', 'grupo_id')
+    es_admin = fields.Boolean(
+        string='Es Administrador',
+        compute='_compute_es_admin'
+    )
+
+    @api.depends_context('uid')
+    def _compute_es_admin(self):
+        is_admin = self.env.user.has_group('partes_escolares.group_instituto_admin')
+        for record in self:
+            record.es_admin = is_admin
+
+    @api.depends('grupo_id')
     def _compute_profesores_permitidos(self):
         for record in self:
             if record.grupo_id:
@@ -53,6 +65,14 @@ class Parte(models.Model):
                 record.profesor_ids_del_grupo = self.env['instituto.profesor'].search([])
 
 
+    @api.onchange('alumno_id')
+    def _onchange_alumno_id(self):
+        """Al seleccionar alumno, auto-rellena el grupo si el alumno pertenece a alguno."""
+        if self.alumno_id and self.alumno_id.grupo_ids:
+            self.grupo_id = self.alumno_id.grupo_ids[0]
+        elif not self.alumno_id:
+            self.grupo_id = False
+
     @api.constrains('profesor_id', 'alumno_id', 'fecha')
     def _check_validez(self):
         for record in self:
@@ -60,6 +80,15 @@ class Parte(models.Model):
                 raise ValidationError("Debe seleccionar un profesor.")
             if record.fecha and record.fecha > fields.Date.today():
                 raise ValidationError("La fecha del parte no puede ser futura.")
+            # Verificar que el usuario actual solo pueda crear partes con su propio nombre
+            if not record.env.user.has_group('partes_escolares.group_instituto_admin'):
+                current_profesor = record.env['instituto.profesor'].search(
+                    [('user_id', '=', record.env.user.id)], limit=1
+                )
+                if current_profesor and record.profesor_id != current_profesor:
+                    raise ValidationError(
+                        "Solo puedes crear partes con tu propio nombre de profesor."
+                    )
 
     @api.depends('fecha', 'hora')
     def _compute_fecha_hora(self):
