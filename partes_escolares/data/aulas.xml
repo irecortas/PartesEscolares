@@ -1,0 +1,421 @@
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="1">
+
+    <!-- ===================== -->
+    <!-- PREFABRICADES I (0)  -->
+    <!-- ===================== -->
+
+    <record id="aula_p1" model="instituto.aula">
+      <field name="name">P1</field>
+      <field name="planta">0</field>
+      <field name="edificio">Prefabricades I</field>
+    </record>
+
+    <record id="aula_p2" model="instituto.aula">
+      <field name="name">P2</field>
+      <field name="planta">0</field>
+      <field name="edificio">Prefabricades I</field>
+    </record>
+
+    <record id="aula_p3" model="instituto.aula">
+      <field name="name">P3</field>
+      <field name="planta">0</field>
+      <field name="edificio">Prefabricades I</field>
+    </record>
+
+    <record id="aula_p4" model="instituto.aula">
+      <field name="name">P4</field>
+      <field name="planta">0</field>
+      <field name="edificio">Prefabricades I</field>
+    </record>
+
+    <record id="aula_p5" model="instituto.aula">
+      <field name="name">P5</field>
+      <field name="planta">0</field>
+      <field name="edificio">Prefabricades I</field>
+    </record>
+
+    <record id="aula_p6" model="instituto.aula">
+      <field name="name">P6</field>
+      <field name="planta">0</field>
+      <field name="edificio">Prefabricades I</field>
+    </record>
+
+    <record id="aula_p7" model="instituto.aula">
+      <field name="name">P7</field>
+      <field name="planta">0</field>
+      <field name="edificio">Prefabricades I</field>
+    </record>
+
+    <record id="aula_p8" model="instituto.aula">
+      <field name="name">P8</field>
+      <field name="planta">0</field>
+      <field name="edificio">Prefabricades I</field>
+    </record>
+
+    <record id="aula_p9" model="instituto.aula">
+      <field name="name">P9</field>
+      <field name="planta">0</field>
+      <field name="edificio">Prefabricades I</field>
+    </record>
+
+    <record id="aula_p10" model="instituto.aula">
+      <field name="name">P10</field>
+      <field name="planta">0</field>
+      <field name="edificio">Prefabricades I</field>
+    </record>
+
+    <record id="aula_p11" model="instituto.aula">
+      <field name="name">P11</field>
+      <field name="planta">0</field>
+      <field name="edificio">Prefabricades I</field>
+    </record>
+
+    <record id="aula_p12" model="instituto.aula">
+      <field name="name">P12</field>
+      <field name="planta">0</field>
+      <field name="edificio">Prefabricades I</field>
+    </record>
+
+
+    <!-- ===================== -->
+    <!-- EDIFICI II           -->
+    <!-- ===================== -->
+
+    <!-- Planta 1 -->
+    <record id="aula_a29_elo_info" model="instituto.aula">
+      <field name="name">A29 ELO INFO</field>
+      <field name="planta">1</field>
+      <field name="edificio">Edifici II</field>
+    </record>
+
+    <record id="aula_a29b_elo_taller" model="instituto.aula">
+      <field name="name">A29 B ELO TALLER</field>
+      <field name="planta">1</field>
+      <field name="edificio">Edifici II</field>
+    </record>
+
+    <record id="aula_a30_lab_elo2" model="instituto.aula">
+      <field name="name">A30 LAB ELO 2</field>
+      <field name="planta">1</field>
+      <field name="edificio">Edifici II</field>
+    </record>
+
+    <record id="aula_a31_musica" model="instituto.aula">
+      <field name="name">A31 MÚSICA</field>
+      <field name="planta">1</field>
+      <field name="edificio">Edifici II</field>
+    </record>
+
+    <record id="aula_a25_lab_biofq" model="instituto.aula">
+      <field name="name">A25 LAB BIO-FQ</field>
+      <field name="planta">1</field>
+      <field name="edificio">Edifici II</field>
+    </record>
+
+    <record id="aula_a26" model="instituto.aula">
+      <field name="name">A26</field>
+      <field name="planta">1</field>
+      <field name="edificio">Edifici II</field>
+    </record>
+
+    <record id="aula_a27_IDIOMA_I" model="instituto.aula">
+      <field name="name">A27 IDIOMA I</field>
+      <field name="planta">1</field>
+      <field name="edificio">Edifici II</field>
+    </record>
+
+    <record id="aula_a28" model="instituto.aula">
+      <field name="name">A28</field>
+      <field name="planta">1</field>
+      <field name="edificio">Edifici II</field>
+    </record>
+
+    <!-- Planta 0 -->
+    <record id="aula_a20_dibu1" model="instituto.aula">
+      <field name="name">A20 DIBU 1</field>
+      <field name="planta">0</field>
+      <field name="edificio">Edifici II</field>
+    </record>
+
+    <record id="aula_a20b_dibu3" model="instituto.aula">
+      <field name="name">A20B DIBU 3</field>
+      <field name="planta">0</field>
+      <field name="edificio">Edifici II</field>
+    </record>
+
+    <record id="aula_a21" model="instituto.aula">
+      <field name="name">A21</field>
+      <field name="planta">0</field>
+      <field name="edificio">Edifici II</field>
+    </record>
+
+    <record id="aula_a22" model="instituto.aula">
+      <field name="name">A22</field>
+      <field name="planta">0</field>
+      <field name="edificio">Edifici II</field>
+    </record>
+
+    <record id="aula_a23_dibu2" model="instituto.aula">
+      <field name="name">A23 DIBU 2</field>
+      <field name="planta">0</field>
+      <field name="edificio">Edifici II</field>
+    </record>
+
+    <record id="aula_a24" model="instituto.aula">
+      <field name="name">A24</field>
+      <field name="planta">0</field>
+      <field name="edificio">Edifici II</field>
+    </record>
+
+
+    <!-- ===================== -->
+    <!-- EDIFICI I            -->
+    <!-- ===================== -->
+
+    <!-- Planta 2 -->
+    <record id="aula_info5" model="instituto.aula">
+      <field name="name">INFO 5</field>
+      <field name="planta">2</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_a14_tecno" model="instituto.aula">
+      <field name="name">A14 TECNO</field>
+      <field name="planta">2</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_a13" model="instituto.aula">
+      <field name="name">A13</field>
+      <field name="planta">2</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_a12" model="instituto.aula">
+      <field name="name">A12</field>
+      <field name="planta">2</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_a11" model="instituto.aula">
+      <field name="name">A11</field>
+      <field name="planta">2</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_info6" model="instituto.aula">
+      <field name="name">INFO 6</field>
+      <field name="planta">2</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_meca_info" model="instituto.aula">
+      <field name="name">MECA INFO</field>
+      <field name="planta">2</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_a18" model="instituto.aula">
+      <field name="name">A18</field>
+      <field name="planta">2</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_a16" model="instituto.aula">
+      <field name="name">A16</field>
+      <field name="planta">2</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_a15" model="instituto.aula">
+      <field name="name">A15</field>
+      <field name="planta">2</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <!-- Planta 1 -->
+    <record id="aula_a1" model="instituto.aula">
+      <field name="name">A1</field>
+      <field name="planta">1</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_a2" model="instituto.aula">
+      <field name="name">A2</field>
+      <field name="planta">1</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_a3_optativa" model="instituto.aula">
+      <field name="name">A3 OPTATIVA</field>
+      <field name="planta">1</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_a4" model="instituto.aula">
+      <field name="name">A4</field>
+      <field name="planta">1</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_a5_info1" model="instituto.aula">
+      <field name="name">A5 INFO 1</field>
+      <field name="planta">1</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_info7_taller" model="instituto.aula">
+      <field name="name">INFO 7 TALLER</field>
+      <field name="planta">1</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_a9_info2" model="instituto.aula">
+      <field name="name">A9 INFO 2</field>
+      <field name="planta">1</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_a8_info3" model="instituto.aula">
+      <field name="name">A8 INFO 3</field>
+      <field name="planta">1</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_a7" model="instituto.aula">
+      <field name="name">A7</field>
+      <field name="planta">1</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_a6_ateca" model="instituto.aula">
+      <field name="name">A6 ATECA</field>
+      <field name="planta">1</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <!-- Planta 0 -->
+    <record id="aula_gimnas" model="instituto.aula">
+      <field name="name">GIMNÀS</field>
+      <field name="planta">0</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_cantina" model="instituto.aula">
+      <field name="name">CANTINA</field>
+      <field name="planta">0</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_wc" model="instituto.aula">
+      <field name="name">WC</field>
+      <field name="planta">0</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_secretaria" model="instituto.aula">
+      <field name="name">SECRETARIA</field>
+      <field name="planta">0</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_empren" model="instituto.aula">
+      <field name="name">AULA EMPREN</field>
+      <field name="planta">0</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_usos_multiples" model="instituto.aula">
+      <field name="name">USOS MÚLTIPLES</field>
+      <field name="planta">0</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+     <record id="aula_departamento" model="instituto.aula">
+      <field name="name">DEPARTAMENTO</field>
+      <field name="planta">0</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_biblioteca" model="instituto.aula">
+      <field name="name">BIBLIOTECA</field>
+      <field name="planta">0</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_direccio" model="instituto.aula">
+      <field name="name">DIRECCIÓ</field>
+      <field name="planta">0</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_entrada" model="instituto.aula">
+      <field name="name">ENTRADA</field>
+      <field name="planta">0</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_orientacio" model="instituto.aula">
+      <field name="name">ORIENTACIÓ</field>
+      <field name="planta">0</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_projectes" model="instituto.aula">
+      <field name="name">PROJECTES</field>
+      <field name="planta">0</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_sala_professors" model="instituto.aula">
+      <field name="name">SALA PROFESSORS</field>
+      <field name="planta">0</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <record id="aula_corredor" model="instituto.aula">
+      <field name="name">CORREDOR</field>
+      <field name="planta">0</field>
+      <field name="edificio">Edifici I</field>
+    </record>
+
+    <!-- ===================== -->
+    <!-- PREFABRICADES II (0) -->
+    <!-- ===================== -->
+
+    <record id="aula_informatica" model="instituto.aula">
+      <field name="name">INFORMÀTICA</field>
+      <field name="planta">0</field>
+      <field name="edificio">Prefabricades II</field>
+    </record>
+
+    <record id="aula_taller_cicles1" model="instituto.aula">
+      <field name="name">TALLER CICLES 1</field>
+      <field name="planta">0</field>
+      <field name="edificio">Prefabricades II</field>
+    </record>
+
+    <record id="aula_taller_cicles2" model="instituto.aula">
+      <field name="name">TALLER CICLES 2</field>
+      <field name="planta">0</field>
+      <field name="edificio">Prefabricades II</field>
+    </record>
+
+    <record id="aula_taller_cicles3" model="instituto.aula">
+      <field name="name">TALLER CICLES 3</field>
+      <field name="planta">0</field>
+      <field name="edificio">Prefabricades II</field>
+    </record>
+
+    <record id="aula_taller_cicles4" model="instituto.aula">
+      <field name="name">TALLER CICLES 4</field>
+      <field name="planta">0</field>
+      <field name="edificio">Prefabricades II</field>
+    </record>
+
+  </data>
+</odoo>
+```

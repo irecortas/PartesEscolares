@@ -43,6 +43,7 @@
         'views/views.xml',
         'views/views_asignatura.xml',
         'data/data_initial.xml',
+        'data/aulas.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

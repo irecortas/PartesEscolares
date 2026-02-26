@@ -37,9 +37,9 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <record id="action_open_lugar" model="ir.actions.act_window">
-        <field name="name">Lugar</field>
-        <field name="res_model">instituto.lugar</field>
+    <record id="action_open_aula" model="ir.actions.act_window">
+        <field name="name">Aula</field>
+        <field name="res_model">instituto.aula</field>
         <field name="view_mode">tree,form</field>
     </record>
 
@@ -80,11 +80,11 @@
         <field name="context">{'group_by': 'asignatura_id'}</field>
     </record>
 
-    <record id="action_analisis_partes_lugar" model="ir.actions.act_window">
-        <field name="name">Análisis de incidencias por lugares</field>
+    <record id="action_analisis_partes_aula" model="ir.actions.act_window">
+        <field name="name">Análisis de incidencias por aulas</field>
         <field name="res_model">instituto.parte</field>
         <field name="view_mode">graph,pivot</field>
-        <field name="context">{'group_by': 'lugar_id'}</field>
+        <field name="context">{'group_by': 'aula_id'}</field>
     </record>
 
 
@@ -100,7 +100,7 @@
     <menuitem id="submenu_reportes_estadisticas_grupos" name="Estadísticas de grupos" parent="menu_reportes_cat" action="action_analisis_partes_grupos" sequence="30" groups="partes_escolares.group_instituto_admin"/>
     <menuitem id="submenu_reportes_estadisticas_motivos" name="Estadísticas de motivos" parent="menu_reportes_cat" action="action_analisis_partes_motivos" sequence="40" groups="partes_escolares.group_instituto_admin"/>
     <menuitem id="submenu_reportes_estadisticas_asignaturas" name="Estadísticas de asignaturas" parent="menu_reportes_cat" action="action_analisis_partes_asignaturas" sequence="50" groups="partes_escolares.group_instituto_admin"/>
-    <menuitem id="submenu_reportes_estadisticas_lugar" name="Estadísticas de lugares" parent="menu_reportes_cat" action="action_analisis_partes_lugar" sequence="60" groups="partes_escolares.group_instituto_admin"/>
+    <menuitem id="submenu_reportes_estadisticas_aula" name="Estadísticas de aulas" parent="menu_reportes_cat" action="action_analisis_partes_aula" sequence="60" groups="partes_escolares.group_instituto_admin"/>
 
 
     <menuitem id="menu_gestion_cat" name="Gestión" parent="menu_gestion_escolar_root" sequence="30"/>
@@ -109,6 +109,6 @@
     <menuitem id="submenu_gestion_grupos" name="Grupos" parent="menu_gestion_cat" action="action_open_grupos" sequence="30" groups="partes_escolares.group_instituto_admin"/>
     <menuitem id="submenu_gestion_motivos" name="Motivos" parent="menu_gestion_cat" action="action_open_motivos" sequence="40" groups="partes_escolares.group_instituto_admin"/>
     <menuitem id="submenu_gestion_asignaturas" name="Asignaturas" parent="menu_gestion_cat" action="action_open_asignaturas" sequence="50" groups="partes_escolares.group_instituto_admin"/>
-    <menuitem id="submenu_gestion_lugar" name="Lugares" parent="menu_gestion_cat" action="action_open_lugar" sequence="60" groups="partes_escolares.group_instituto_admin"/>
+    <menuitem id="submenu_gestion_aula" name="Aulas" parent="menu_gestion_cat" action="action_open_aula" sequence="60" groups="partes_escolares.group_instituto_admin"/>
 
 </odoo>

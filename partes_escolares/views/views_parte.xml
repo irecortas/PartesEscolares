@@ -31,7 +31,7 @@
                             <field name="fecha" />
                             <field name="hora" widget="float_time"/>
                             <field name="asignatura_id" options="{'no_open': True}"/>
-                            <field name="lugar_id"/>
+                            <field name="aula_id"/>
                         </group>
                     </group>
                     

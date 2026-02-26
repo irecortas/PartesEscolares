@@ -6,5 +6,5 @@ from . import Parte
 from . import Grupo
 from . import Motivo
 from . import Asignatura
-from . import Lugar
+from . import Aula
 from . import res_users

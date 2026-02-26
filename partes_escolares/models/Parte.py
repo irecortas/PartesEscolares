@@ -24,7 +24,7 @@ class Parte(models.Model):
     )
 
     descripcion = fields.Text(string='Detalles adicionales')
-    lugar_id = fields.Many2one('instituto.lugar', string='Lugar', required=True)
+    aula_id = fields.Many2one('instituto.aula', string='Aula', required=True)
     acciones = fields.Text(string='Acciones tomadas')
     state = fields.Selection([
         ('pendiente', 'Pendiente de contactar'),
