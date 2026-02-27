@@ -309,12 +309,6 @@
       <field name="edificio">Edifici I</field>
     </record>
 
-    <record id="aula_wc" model="instituto.aula">
-      <field name="name">WC</field>
-      <field name="planta">0</field>
-      <field name="edificio">Edifici I</field>
-    </record>
-
     <record id="aula_secretaria" model="instituto.aula">
       <field name="name">SECRETARIA</field>
       <field name="planta">0</field>
@@ -329,12 +323,6 @@
 
     <record id="aula_usos_multiples" model="instituto.aula">
       <field name="name">USOS MÚLTIPLES</field>
-      <field name="planta">0</field>
-      <field name="edificio">Edifici I</field>
-    </record>
-
-     <record id="aula_departamento" model="instituto.aula">
-      <field name="name">DEPARTAMENTO</field>
       <field name="planta">0</field>
       <field name="edificio">Edifici I</field>
     </record>
@@ -375,11 +363,7 @@
       <field name="edificio">Edifici I</field>
     </record>
 
-    <record id="aula_corredor" model="instituto.aula">
-      <field name="name">CORREDOR</field>
-      <field name="planta">0</field>
-      <field name="edificio">Edifici I</field>
-    </record>
+    
 
     <!-- ===================== -->
     <!-- PREFABRICADES II (0) -->
@@ -414,6 +398,34 @@
       <field name="planta">0</field>
       <field name="edificio">Prefabricades II</field>
     </record>
+
+
+
+
+    <record id="aula_patio" model="instituto.aula">
+      <field name="name">A24</field>
+      <field name="planta">0</field>
+      <field name="edificio">Por defecto</field>
+    </record>
+
+    <record id="aula_corredor" model="instituto.aula">
+      <field name="name">CORREDOR</field>
+      <field name="planta">0</field>
+      <field name="edificio">Por defecto</field>
+    </record>
+
+    <record id="aula_departamento" model="instituto.aula">
+      <field name="name">DEPARTAMENTO</field>
+      <field name="planta">0</field>
+      <field name="edificio">Por defecto</field>
+    </record>
+
+    <record id="aula_wc" model="instituto.aula">
+      <field name="name">WC</field>
+      <field name="planta">0</field>
+      <field name="edificio">Por defecto</field>
+    </record>
+
 
   </data>
 </odoo>
